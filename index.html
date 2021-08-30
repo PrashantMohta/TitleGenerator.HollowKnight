@@ -1,0 +1,59 @@
+<style>
+    @font-face {
+        font-family: 'perpetua';
+        src: url('Assets/perpetua.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+    }
+    @font-face {
+        font-family: 'perpetuabold';
+        src: url('Assets/perpetuab.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+    }
+</style>
+<div>
+    <label>super</label> <input id="super" type="text" value="Hollow Knight"></br>
+    <label>main</label> <input id="main" type="text" value="Title Maker"></br>
+    <label>sub</label> <input id="sub" type="text" value="html5 go brrrr"></br>
+</div>
+<canvas style="background:darkslategray;" width="1274" height="521"></canvas>
+<img src="Assets/banner.png" stlye="display:none;">
+
+<script>
+   let img = document.querySelector("img");
+   let mainInp = document.querySelector('#main');
+   let superInp = document.querySelector('#super');
+   let subInp = document.querySelector('#sub');
+   let canvas = document.querySelector("canvas");
+   let ctx = canvas.getContext('2d');
+   let subSuperSize = 32;
+   let mainSize = 128;
+   let offset = 10;
+   img.onload=()=>{
+       setInterval(()=>{render()},500);
+   }
+   function addText(txt,size,ypos){
+        ctx.font = `${size}px perpetuabold`;
+        ctx.fillStyle = 'white';
+        ctx.textBaseline = 'top';
+        ctx.shadowColor = "white";
+        ctx.shadowOffsetX = 0;
+        ctx.shadowOffsetY = 0;
+        ctx.shadowBlur = 10;
+        ctx.fillText  (txt, 1274/2 - ctx.measureText(txt).width/2, ypos-size/2 );
+   }
+   function render(){
+        ctx.shadowBlur = 0; 
+        ctx.clearRect(0,0,canvas.width,canvas.height);
+        ctx.drawImage(img, 0,0,img.width, img.height);
+        let superT = superInp.value.toUpperCase();
+        let mainT = mainInp.value.toUpperCase();
+        let subT = subInp.value.toUpperCase();
+        addText(superT,subSuperSize,135);
+        addText(mainT,mainSize + (!superT? subSuperSize : 0) + (!subT? subSuperSize : 0),215 - (!superT? subSuperSize/2 : 0) + (!subT? subSuperSize/2 : 0));
+        addText(subT,subSuperSize,270);
+
+   }
+
+</script>
