@@ -109,7 +109,7 @@ export class BannerParams{
 
     use(){
         if(!this.loading && !this.banner){
-            getImage(this.bannerUrl).then( i => this.banner = i).finally( () => this.loading = false);
+            getImage(this.bannerUrl).then( i => { this.banner = i;  this.loading = false;});
             this.loading = true;
         }
     }
