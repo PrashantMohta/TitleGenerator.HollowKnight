@@ -10,7 +10,7 @@
 	let allBanners = [
 		new BannerParams(
 			"Base",
-			"/Assets/banner.png",{
+			"Assets/banner.png",{
 			size : {width: 1274, height: 521},
 			superText:{ size : 32, ypos : 135},
 			mainText:{ size : 128, ypos : 215},
@@ -18,7 +18,7 @@
 		}),
 		new BannerParams(
 			"Hi-res",
-			"/Assets/bannerhires.png",{
+			"Assets/bannerhires.png",{
 			needsShadow : true,
 			blur : 30,	
 			size : {width: 3500, height: 1280},
@@ -28,7 +28,7 @@
 		}),
 		new BannerParams(
 			"Hi-res Black",
-			"/Assets/hollow_knight_title_large_black.png",{
+			"Assets/hollow_knight_title_large_black.png",{
 			color:"black",
 			needsShadow : true,
 			blur : 10,	
@@ -39,7 +39,7 @@
 		}),
 		new BannerParams(
 			"VoidHeart",
-			"/Assets/Logo_Voidheart.png",{
+			"Assets/Logo_Voidheart.png",{
 			needsShadow : true,
 			blur : 10,	
 			size : {width: 2200, height: 663},
@@ -49,7 +49,7 @@
 		}),
 		new BannerParams(
 			"VoidHeart Black",
-			"/Assets/Logo_Voidheart_Black.png",{
+			"Assets/Logo_Voidheart_Black.png",{
 			color:"black",
 			needsShadow : true,
 			blur : 10,	
