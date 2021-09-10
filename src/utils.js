@@ -1,3 +1,11 @@
+export function trySafe(fn){
+    try{
+        return fn();
+    } catch(e) {
+        console.error(e)
+    };
+}
+
 export function getImage(src){
     let image = new Image();
     return new Promise((resolve,reject)=>{
@@ -95,8 +103,9 @@ export class canvasHelper{
 
 export class BannerParams{
     banner = undefined;
-    constructor(name,bannerUrl,{needsShadow,color,blur,size,superText,mainText,subText} = {}){
+    constructor(name,bannerUrl,{enableLight,needsShadow,color,blur,size,superText,mainText,subText} = {}){
         this.name = name;
+        this.enableLight = enableLight;
         this.bannerUrl = bannerUrl;
         this.color = color;
         this.blur = blur || 10;
