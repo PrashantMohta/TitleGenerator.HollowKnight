@@ -391,7 +391,7 @@ var app = (function () {
             console.error(e);
         }
         if(params.has(key)){
-            return params.get(key);
+            return decodeURIComponent(params.get(key));
         }
         return "";
     }
@@ -455,7 +455,7 @@ var app = (function () {
             let width = this.ctx.measureText(txt).width;
             for(width = this.ctx.measureText(txt).width; width > this.canvas.width; width = this.ctx.measureText(txt).width){
                 size = size*0.90;
-                this.ctx.font = `${size}px ${this.fontname}`;
+                this.ctx.font = `${size}px ${font || this.fontname}`;
             }
             this.ctx.fillText  (txt, this.canvas.width/2 - width/2, ypos-size/2 );
             this.ctx.restore();
@@ -519,7 +519,7 @@ var app = (function () {
     			t1 = space();
     			option.__value = /*index*/ ctx[21];
     			option.value = option.__value;
-    			add_location(option, file, 159, 7, 5101);
+    			add_location(option, file, 159, 7, 5161);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, option, anchor);
@@ -690,88 +690,88 @@ var app = (function () {
     			a1 = element("a");
     			a1.textContent = "Hollow Knight Modding Discord Server";
     			attr_dev(h1, "class", "svelte-91a1jx");
-    			add_location(h1, file, 146, 1, 4482);
+    			add_location(h1, file, 146, 1, 4542);
     			attr_dev(div0, "class", "pure-u-1 pure-u-md-1-6");
-    			add_location(div0, file, 148, 2, 4545);
+    			add_location(div0, file, 148, 2, 4605);
     			attr_dev(canvas, "class", "mb-15 svelte-91a1jx");
     			attr_dev(canvas, "width", canvas_width_value = /*currentBanner*/ ctx[6].size?.width);
     			attr_dev(canvas, "height", canvas_height_value = /*currentBanner*/ ctx[6].size?.height);
-    			add_location(canvas, file, 151, 3, 4633);
+    			add_location(canvas, file, 151, 3, 4693);
     			attr_dev(div1, "class", "pure-u-1 pure-u-md-2-3");
-    			add_location(div1, file, 150, 2, 4593);
+    			add_location(div1, file, 150, 2, 4653);
     			attr_dev(label0, "class", "pure-u-1 pad-v svelte-91a1jx");
-    			add_location(label0, file, 156, 5, 4868);
+    			add_location(label0, file, 156, 5, 4928);
     			attr_dev(select, "class", "pure-u-1");
     			if (/*selectedTitleIndex*/ ctx[5] === void 0) add_render_callback(() => /*select_change_handler*/ ctx[10].call(select));
-    			add_location(select, file, 157, 5, 4924);
+    			add_location(select, file, 157, 5, 4984);
     			attr_dev(div2, "class", "pure-g svelte-91a1jx");
-    			add_location(div2, file, 155, 4, 4842);
+    			add_location(div2, file, 155, 4, 4902);
     			attr_dev(input0, "type", "checkbox");
-    			add_location(input0, file, 168, 6, 5271);
+    			add_location(input0, file, 168, 6, 5331);
     			attr_dev(label1, "class", "pure-u-1 pad-v svelte-91a1jx");
-    			add_location(label1, file, 167, 5, 5234);
+    			add_location(label1, file, 167, 5, 5294);
     			attr_dev(div3, "class", "pure-g svelte-91a1jx");
-    			add_location(div3, file, 166, 4, 5208);
+    			add_location(div3, file, 166, 4, 5268);
     			attr_dev(input1, "type", "checkbox");
-    			add_location(input1, file, 174, 6, 5429);
+    			add_location(input1, file, 174, 6, 5489);
     			attr_dev(label2, "class", "pure-u-1 pad-v svelte-91a1jx");
-    			add_location(label2, file, 173, 5, 5392);
+    			add_location(label2, file, 173, 5, 5452);
     			attr_dev(div4, "class", "pure-g svelte-91a1jx");
-    			add_location(div4, file, 172, 4, 5366);
+    			add_location(div4, file, 172, 4, 5426);
     			attr_dev(label3, "class", "pure-u-1 pad-v svelte-91a1jx");
-    			add_location(label3, file, 180, 5, 5551);
+    			add_location(label3, file, 180, 5, 5611);
     			attr_dev(input2, "class", "pure-u-1");
     			attr_dev(input2, "type", "text");
-    			add_location(input2, file, 181, 5, 5607);
-    			add_location(br0, file, 181, 70, 5672);
+    			add_location(input2, file, 181, 5, 5667);
+    			add_location(br0, file, 181, 70, 5732);
     			attr_dev(div5, "class", "pure-g svelte-91a1jx");
-    			add_location(div5, file, 179, 4, 5525);
+    			add_location(div5, file, 179, 4, 5585);
     			attr_dev(label4, "class", "pure-u-1 pad-v svelte-91a1jx");
-    			add_location(label4, file, 185, 5, 5719);
+    			add_location(label4, file, 185, 5, 5779);
     			attr_dev(input3, "class", "pure-u-1");
     			attr_dev(input3, "type", "text");
-    			add_location(input3, file, 186, 5, 5773);
-    			add_location(br1, file, 186, 69, 5837);
+    			add_location(input3, file, 186, 5, 5833);
+    			add_location(br1, file, 186, 69, 5897);
     			attr_dev(div6, "class", "pure-g svelte-91a1jx");
-    			add_location(div6, file, 184, 4, 5693);
+    			add_location(div6, file, 184, 4, 5753);
     			attr_dev(label5, "class", "pure-u-1 pad-v svelte-91a1jx");
-    			add_location(label5, file, 190, 5, 5884);
+    			add_location(label5, file, 190, 5, 5944);
     			attr_dev(input4, "class", "pure-u-1");
     			attr_dev(input4, "type", "text");
-    			add_location(input4, file, 191, 5, 5938);
-    			add_location(br2, file, 191, 68, 6001);
+    			add_location(input4, file, 191, 5, 5998);
+    			add_location(br2, file, 191, 68, 6061);
     			attr_dev(div7, "class", "pure-g svelte-91a1jx");
-    			add_location(div7, file, 189, 4, 5858);
+    			add_location(div7, file, 189, 4, 5918);
     			attr_dev(button, "class", "pure-u-1");
-    			add_location(button, file, 195, 5, 6060);
+    			add_location(button, file, 195, 5, 6120);
     			attr_dev(div8, "class", "pure-g pad-v-2 svelte-91a1jx");
-    			add_location(div8, file, 194, 4, 6026);
+    			add_location(div8, file, 194, 4, 6086);
     			attr_dev(div9, "class", "box mt-0 svelte-91a1jx");
-    			add_location(div9, file, 154, 3, 4815);
+    			add_location(div9, file, 154, 3, 4875);
     			attr_dev(div10, "class", "pure-u-1 pure-u-md-1-6");
-    			add_location(div10, file, 153, 2, 4775);
+    			add_location(div10, file, 153, 2, 4835);
     			attr_dev(div11, "class", "pure-g svelte-91a1jx");
-    			add_location(div11, file, 147, 1, 4522);
+    			add_location(div11, file, 147, 1, 4582);
     			attr_dev(div12, "class", "pure-u-1 pure-u-md-1-2 pad-v svelte-91a1jx");
-    			add_location(div12, file, 201, 2, 6244);
+    			add_location(div12, file, 201, 2, 6304);
     			attr_dev(a0, "class", "fit-text svelte-91a1jx");
     			attr_dev(a0, "href", /*link*/ ctx[0]);
-    			add_location(a0, file, 205, 3, 6355);
+    			add_location(a0, file, 205, 3, 6415);
     			attr_dev(div13, "class", "pure-u-1 pure-u-md-1-2");
-    			add_location(div13, file, 204, 2, 6315);
+    			add_location(div13, file, 204, 2, 6375);
     			attr_dev(div14, "class", "box svelte-91a1jx");
-    			add_location(div14, file, 200, 1, 6224);
+    			add_location(div14, file, 200, 1, 6284);
     			attr_dev(main, "class", "svelte-91a1jx");
-    			add_location(main, file, 145, 0, 4474);
+    			add_location(main, file, 145, 0, 4534);
     			attr_dev(a1, "href", "https://discord.gg/rqsRHRt25h");
     			attr_dev(a1, "target", "_blank");
-    			add_location(a1, file, 212, 53, 6540);
+    			add_location(a1, file, 212, 53, 6600);
     			attr_dev(div15, "class", "pure-u-1 mb-5");
-    			add_location(div15, file, 211, 2, 6459);
+    			add_location(div15, file, 211, 2, 6519);
     			attr_dev(div16, "class", "pure-g svelte-91a1jx");
-    			add_location(div16, file, 210, 1, 6436);
+    			add_location(div16, file, 210, 1, 6496);
     			attr_dev(footer, "class", "svelte-91a1jx");
-    			add_location(footer, file, 209, 0, 6425);
+    			add_location(footer, file, 209, 0, 6485);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -1064,7 +1064,7 @@ var app = (function () {
     	let cH;
 
     	function updateLink() {
-    		let templink = `${window.location.origin}${window.location.pathname}?title=${selectedTitleIndex}&blur=${enableBlur}&bold=${enableBold}&${text.superText && `super=${text.superText}&`}${text.mainText && `main=${text.mainText}&`}${text.subText && `sub=${text.subText}`}`;
+    		let templink = `${window.location.origin}${window.location.pathname}?title=${selectedTitleIndex}&blur=${enableBlur}&bold=${enableBold}&${text.superText && `super=${encodeURIComponent(text.superText)}&`}${text.mainText && `main=${encodeURIComponent(text.mainText)}&`}${text.subText && `sub=${encodeURIComponent(text.subText)}`}`;
 
     		if (link != templink) {
     			$$invalidate(0, link = templink);

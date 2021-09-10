@@ -15,7 +15,7 @@ export function getParam(key){
         console.error(e);
     }
     if(params.has(key)){
-        return params.get(key);
+        return decodeURIComponent(params.get(key));
     }
     return "";
 }
@@ -79,7 +79,7 @@ export class canvasHelper{
         let width = this.ctx.measureText(txt).width;
         for(width = this.ctx.measureText(txt).width; width > this.canvas.width; width = this.ctx.measureText(txt).width){
             size = size*0.90;
-            this.ctx.font = `${size}px ${this.fontname}`;
+            this.ctx.font = `${size}px ${font || this.fontname}`;
         }
         this.ctx.fillText  (txt, this.canvas.width/2 - width/2, ypos-size/2 );
         this.ctx.restore();

@@ -89,7 +89,7 @@
 	let currentBanner = allBanners[selectedTitleIndex];
 	let cH;
 	function updateLink(){
-		let templink = `${window.location.origin}${window.location.pathname}?title=${selectedTitleIndex}&blur=${enableBlur}&bold=${enableBold}&${text.superText && `super=${text.superText}&`}${text.mainText && `main=${text.mainText}&`}${text.subText && `sub=${text.subText}`}`;
+		let templink = `${window.location.origin}${window.location.pathname}?title=${selectedTitleIndex}&blur=${enableBlur}&bold=${enableBold}&${text.superText && `super=${encodeURIComponent(text.superText)}&`}${text.mainText && `main=${encodeURIComponent(text.mainText)}&`}${text.subText && `sub=${encodeURIComponent(text.subText)}`}`;
 		if(link != templink){
 			link = templink;
 			window.history.pushState(link,"Title Change",link);
