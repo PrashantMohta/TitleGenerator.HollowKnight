@@ -178,8 +178,8 @@
 </main>
 <footer >
 	<div class="pure-g">
-		<div class="pure-u-1">
-			Found a bug? Have any suggestions? Join us in the <a href="https://discord.gg/rqsRHRt25h" target="_blank">Hollow Knight Modding Server</a> 
+		<div class="pure-u-1 mb-5">
+			Found a bug? Have any suggestions? Join us in the <a href="https://discord.gg/rqsRHRt25h" target="_blank">Hollow Knight Modding Discord Server</a> 
 		</div>
 	</div>
 </footer>
