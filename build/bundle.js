@@ -1,2 +1,1188 @@
-var app=function(){"use strict";function t(){}function e(t){return t()}function n(){return Object.create(null)}function s(t){t.forEach(e)}function o(t){return"function"==typeof t}function r(t,e){return t!=t?e==e:t!==e||t&&"object"==typeof t||"function"==typeof t}function i(t,e){t.appendChild(e)}function u(t,e,n){t.insertBefore(e,n||null)}function a(t){t.parentNode.removeChild(t)}function l(t){return document.createElement(t)}function c(t){return document.createTextNode(t)}function h(){return c(" ")}function d(t,e,n,s){return t.addEventListener(e,n,s),()=>t.removeEventListener(e,n,s)}function p(t,e,n){null==n?t.removeAttribute(e):t.getAttribute(e)!==n&&t.setAttribute(e,n)}function x(t,e){t.value=null==e?"":e}function f(t,e){for(let n=0;n<t.options.length;n+=1){const s=t.options[n];if(s.__value===e)return void(s.selected=!0)}t.selectedIndex=-1}let m;function g(t){m=t}function b(t){(function(){if(!m)throw new Error("Function called outside component initialization");return m})().$$.on_mount.push(t)}const v=[],T=[],w=[],$=[],y=Promise.resolve();let z=!1;function _(t){w.push(t)}let k=!1;const S=new Set;function C(){if(!k){k=!0;do{for(let t=0;t<v.length;t+=1){const e=v[t];g(e),A(e.$$)}for(g(null),v.length=0;T.length;)T.pop()();for(let t=0;t<w.length;t+=1){const e=w[t];S.has(e)||(S.add(e),e())}w.length=0}while(v.length);for(;$.length;)$.pop()();z=!1,k=!1,S.clear()}}function A(t){if(null!==t.fragment){t.update(),s(t.before_update);const e=t.dirty;t.dirty=[-1],t.fragment&&t.fragment.p(t.ctx,e),t.after_update.forEach(_)}}const E=new Set;function B(t,e){-1===t.$$.dirty[0]&&(v.push(t),z||(z=!0,y.then(C)),t.$$.dirty.fill(0)),t.$$.dirty[e/31|0]|=1<<e%31}function O(r,i,u,l,c,h,d,p=[-1]){const x=m;g(r);const f=r.$$={fragment:null,ctx:null,props:h,update:t,not_equal:c,bound:n(),on_mount:[],on_destroy:[],on_disconnect:[],before_update:[],after_update:[],context:new Map(x?x.$$.context:i.context||[]),callbacks:n(),dirty:p,skip_bound:!1,root:i.target||x.$$.root};d&&d(f.root);let b=!1;if(f.ctx=u?u(r,i.props||{},((t,e,...n)=>{const s=n.length?n[0]:e;return f.ctx&&c(f.ctx[t],f.ctx[t]=s)&&(!f.skip_bound&&f.bound[t]&&f.bound[t](s),b&&B(r,t)),e})):[],f.update(),b=!0,s(f.before_update),f.fragment=!!l&&l(f.ctx),i.target){if(i.hydrate){const t=function(t){return Array.from(t.childNodes)}(i.target);f.fragment&&f.fragment.l(t),t.forEach(a)}else f.fragment&&f.fragment.c();i.intro&&((v=r.$$.fragment)&&v.i&&(E.delete(v),v.i(T))),function(t,n,r,i){const{fragment:u,on_mount:a,on_destroy:l,after_update:c}=t.$$;u&&u.m(n,r),i||_((()=>{const n=a.map(e).filter(o);l?l.push(...n):s(n),t.$$.on_mount=[]})),c.forEach(_)}(r,i.target,i.anchor,i.customElement),C()}var v,T;g(x)}function I(t){let e;try{e=new URLSearchParams(window.location.search)}catch(t){console.error(t)}return e.has(t)?e.get(t):""}class L{constructor(t){this.canvas=t,this.ctx=t.getContext("2d")}color="white";fontname="perpetuabold";clear({x:t,y:e,w:n,h:s}={}){this.ctx.clearRect(t||0,e||0,n||this.canvas.width,s||this.canvas.height)}withShadow(t,{color:e,x:n,y:s,blur:o}={}){this.ctx.save(),this.ctx.shadowColor=e||this.color,this.ctx.shadowOffsetX=n||0,this.ctx.shadowOffsetY=s||0,this.ctx.shadowBlur=null!=o?o:10,t(),this.ctx.restore()}addImage(t,{x:e,y:n,w:s,h:o}={}){this.ctx.drawImage(t,e||0,n||0,s||t.width,o||t.height)}addText(t,{font:e,color:n,size:s,ypos:o,blur:r}={}){this.ctx.save(),this.ctx.font=`${s}px ${e||this.fontname}`,this.ctx.fillStyle=n||this.color,this.ctx.textBaseline="top",this.ctx.shadowColor=n||this.color,this.ctx.shadowOffsetX=0,this.ctx.shadowOffsetY=0,this.ctx.shadowBlur=null!=r?r:10;let i=this.ctx.measureText(t).width;for(i=this.ctx.measureText(t).width;i>this.canvas.width;i=this.ctx.measureText(t).width)s*=.9,this.ctx.font=`${s}px ${this.fontname}`;this.ctx.fillText(t,this.canvas.width/2-i/2,o-s/2),this.ctx.restore()}download(t){let e=this.canvas.toDataURL("image/png",1).replace("image/png","image/octet-stream");var n=document.createElement("a");n.download=t||"download.png",n.href=e,n.click()}}class H{banner=void 0;constructor(t,e,{needsShadow:n,color:s,blur:o,size:r,superText:i,mainText:u,subText:a}={}){this.name=t,this.bannerUrl=e,this.color=s,this.blur=o||10,this.needsShadow=!!n,this.size=r||{width:1274,height:521},this.superText=i||{size:32,ypos:135},this.mainText=u||{size:128,ypos:215},this.subText=a||{size:32,ypos:270}}use(){this.loading||this.banner||(function(t){let e=new Image;return new Promise(((n,s)=>{e.src=t,e.onload=()=>n(e),e.onerror=t=>s(e)}))}(this.bannerUrl).then((t=>{this.banner=t,this.loading=!1})),this.loading=!0)}isReady(){return!!this.banner}}function U(t,e,n){const s=t.slice();return s[16]=e[n],s[18]=n,s}function R(e){let n,s,o,r,d=e[16].name+"";return{c(){n=l("option"),s=c(d),o=h(),n.__value=r=e[18],n.value=n.__value},m(t,e){u(t,n,e),i(n,s),i(n,o)},p:t,d(t){t&&a(n)}}}function N(e){let n,r,m,g,b,v,T,w,$,y,z,k,S,C,A,E,B,O,I,L,H,N,V,j,q,F,P,D,G,K,M,X,Y,W,J,Q,Z,tt,et,nt,st,ot,rt,it,ut,at,lt,ct,ht,dt,pt,xt,ft=e[7],mt=[];for(let t=0;t<ft.length;t+=1)mt[t]=R(U(e,ft,t));return{c(){n=l("main"),r=l("h1"),r.textContent="Hollow Knight Title Generator",m=h(),g=l("div"),b=l("div"),v=h(),T=l("div"),w=l("canvas"),z=h(),k=l("div"),S=l("div"),C=l("div"),A=l("label"),A.textContent="Title",E=h(),B=l("select");for(let t=0;t<mt.length;t+=1)mt[t].c();O=h(),I=l("div"),L=l("label"),H=l("input"),N=c("\n\t\t\t\t\t\tEnable Blur"),V=h(),j=l("div"),q=l("label"),q.textContent="Super",F=h(),P=l("input"),D=l("br"),G=h(),K=l("div"),M=l("label"),M.textContent="Main",X=h(),Y=l("input"),W=l("br"),J=h(),Q=l("div"),Z=l("label"),Z.textContent="Sub",tt=h(),et=l("input"),nt=l("br"),st=h(),ot=l("div"),rt=l("button"),rt.textContent="Download",it=h(),ut=l("div"),at=l("div"),at.textContent="Sharable url",lt=h(),ct=l("div"),ht=l("a"),dt=c(e[0]),p(r,"class","svelte-1g3rmv2"),p(b,"class","pure-u-1 pure-u-md-1-6"),p(w,"width",$=e[5].size?.width),p(w,"height",y=e[5].size?.height),p(w,"class","svelte-1g3rmv2"),p(T,"class","pure-u-1 pure-u-md-2-3"),p(A,"class","pure-u-1 pad-v svelte-1g3rmv2"),p(B,"class","pure-u-1"),void 0===e[4]&&_((()=>e[9].call(B))),p(C,"class","pure-g svelte-1g3rmv2"),p(H,"type","checkbox"),p(L,"class","pure-u-1 pad-v svelte-1g3rmv2"),p(I,"class","pure-g svelte-1g3rmv2"),p(q,"class","pure-u-1 pad-v svelte-1g3rmv2"),p(P,"class","pure-u-1"),p(P,"type","text"),p(j,"class","pure-g svelte-1g3rmv2"),p(M,"class","pure-u-1 pad-v svelte-1g3rmv2"),p(Y,"class","pure-u-1"),p(Y,"type","text"),p(K,"class","pure-g svelte-1g3rmv2"),p(Z,"class","pure-u-1 pad-v svelte-1g3rmv2"),p(et,"class","pure-u-1"),p(et,"type","text"),p(Q,"class","pure-g svelte-1g3rmv2"),p(rt,"class","pure-u-1"),p(ot,"class","pure-g pad-v-2 svelte-1g3rmv2"),p(k,"class","pure-u-1 pure-u-md-1-6"),p(g,"class","pure-g svelte-1g3rmv2"),p(at,"class","pure-u-1 pure-u-md-1-2 pad-v svelte-1g3rmv2"),p(ht,"href",e[0]),p(ct,"class","pure-u-1 pure-u-md-1-2"),p(n,"class","svelte-1g3rmv2")},m(t,s){u(t,n,s),i(n,r),i(n,m),i(n,g),i(g,b),i(g,v),i(g,T),i(T,w),e[8](w),i(g,z),i(g,k),i(k,S),i(S,C),i(C,A),i(C,E),i(C,B);for(let t=0;t<mt.length;t+=1)mt[t].m(B,null);f(B,e[4]),i(S,O),i(S,I),i(I,L),i(L,H),H.checked=e[3],i(L,N),i(S,V),i(S,j),i(j,q),i(j,F),i(j,P),x(P,e[1].superText),i(j,D),i(S,G),i(S,K),i(K,M),i(K,X),i(K,Y),x(Y,e[1].mainText),i(K,W),i(S,J),i(S,Q),i(Q,Z),i(Q,tt),i(Q,et),x(et,e[1].subText),i(Q,nt),i(S,st),i(S,ot),i(ot,rt),i(n,it),i(n,ut),i(ut,at),i(ut,lt),i(ut,ct),i(ct,ht),i(ht,dt),pt||(xt=[d(B,"change",e[9]),d(B,"change",e[10]),d(H,"change",e[11]),d(P,"input",e[12]),d(Y,"input",e[13]),d(et,"input",e[14]),d(rt,"click",(function(){o(e[6].download(`${e[1].superText}${e[1].mainText}${e[1].subText}`))&&e[6].download(`${e[1].superText}${e[1].mainText}${e[1].subText}`).apply(this,arguments)}))],pt=!0)},p(t,[n]){if(e=t,32&n&&$!==($=e[5].size?.width)&&p(w,"width",$),32&n&&y!==(y=e[5].size?.height)&&p(w,"height",y),128&n){let t;for(ft=e[7],t=0;t<ft.length;t+=1){const s=U(e,ft,t);mt[t]?mt[t].p(s,n):(mt[t]=R(s),mt[t].c(),mt[t].m(B,null))}for(;t<mt.length;t+=1)mt[t].d(1);mt.length=ft.length}16&n&&f(B,e[4]),8&n&&(H.checked=e[3]),2&n&&P.value!==e[1].superText&&x(P,e[1].superText),2&n&&Y.value!==e[1].mainText&&x(Y,e[1].mainText),2&n&&et.value!==e[1].subText&&x(et,e[1].subText),1&n&&function(t,e){e=""+e,t.wholeText!==e&&(t.data=e)}(dt,e[0]),1&n&&p(ht,"href",e[0])},i:t,o:t,d(t){t&&a(n),e[8](null),function(t,e){for(let n=0;n<t.length;n+=1)t[n]&&t[n].d(e)}(mt,t),pt=!1,s(xt)}}}function V(t,e,n){let s,o="",r=function(){let t=I("super"),e=I("main"),n=I("sub");return t||e||n?{superText:t,mainText:e,subText:n}:{superText:"",mainText:"HOLLOW KNIGHT ",subText:"Title generator"}}(),i="true"==I("title")||!0,u=[new H("Base","Assets/banner.png",{size:{width:1274,height:521},superText:{size:32,ypos:135},mainText:{size:128,ypos:215},subText:{size:32,ypos:270}}),new H("Hi-res","Assets/bannerhires.png",{needsShadow:!0,blur:30,size:{width:3500,height:1280},superText:{size:78.6176,ypos:331.668},mainText:{size:314.4704,ypos:528.212},subText:{size:78.6176,ypos:663.336}}),new H("Hi-res Black","Assets/hollow_knight_title_large_black.png",{color:"black",needsShadow:!0,blur:10,size:{width:3252,height:1191},superText:{size:72,ypos:303.75},mainText:{size:288,ypos:483.75},subText:{size:72,ypos:607.5}}),new H("VoidHeart","Assets/Logo_Voidheart.png",{needsShadow:!0,blur:10,size:{width:2200,height:663},superText:{size:54.72,ypos:230.85},mainText:{size:218.88,ypos:367.65},subText:{size:54.72,ypos:461.7}}),new H("VoidHeart Black","Assets/Logo_Voidheart_Black.png",{color:"black",needsShadow:!0,blur:10,size:{width:2200,height:663},superText:{size:54.72,ypos:230.85},mainText:{size:218.88,ypos:367.65},subText:{size:54.72,ypos:461.7}})],a=0;try{a=parseInt(I("title"))||0}catch(t){}let l,c=u[a];b((()=>(n(6,l=new L(s)),function(t){let e;return function n(){e=requestAnimationFrame(n),t()}(),()=>{cancelAnimationFrame(e)}}((()=>{if(function(){let t=`${window.location.origin}${window.location.pathname}?title=${a}&blur=${i}&${r.superText&&`super=${r.superText}&`}${r.mainText&&`main=${r.mainText}&`}${r.subText&&`sub=${r.subText}`}`;o!=t&&(n(0,o=t),window.history.pushState(o,"Title Change",o))}(),!c.isReady())return c.use();l.clear(),c.needsShadow&&i?l.withShadow((()=>{l.addImage(c.banner)}),{blur:c.blur,color:c.color}):l.addImage(c.banner),l.addText(r.superText.toUpperCase(),{...c.superText,blur:i?c.blur:0,color:c.color}),l.addText(r.mainText.toUpperCase(),{size:c.mainText.size+(r.superText?0:c.superText.size)+(r.subText?0:c.subText.size),ypos:c.mainText.ypos-(r.superText?0:c.superText.size/2)+(r.subText?0:c.subText.size/2),blur:i?c.blur:0,color:c.color}),l.addText(r.subText.toUpperCase(),{...c.subText,blur:i?c.blur:0,color:c.color})})))));return[o,r,s,i,a,c,l,u,function(t){T[t?"unshift":"push"]((()=>{s=t,n(2,s)}))},function(){a=function(t){const e=t.querySelector(":checked")||t.options[0];return e&&e.__value}(this),n(4,a)},()=>{n(5,c=u[a])},function(){i=this.checked,n(3,i)},function(){r.superText=this.value,n(1,r)},function(){r.mainText=this.value,n(1,r)},function(){r.subText=this.value,n(1,r)}]}return new class extends class{$destroy(){!function(t,e){const n=t.$$;null!==n.fragment&&(s(n.on_destroy),n.fragment&&n.fragment.d(e),n.on_destroy=n.fragment=null,n.ctx=[])}(this,1),this.$destroy=t}$on(t,e){const n=this.$$.callbacks[t]||(this.$$.callbacks[t]=[]);return n.push(e),()=>{const t=n.indexOf(e);-1!==t&&n.splice(t,1)}}$set(t){var e;this.$$set&&(e=t,0!==Object.keys(e).length)&&(this.$$.skip_bound=!0,this.$$set(t),this.$$.skip_bound=!1)}}{constructor(t){super(),O(this,t,V,N,r,{})}}({target:document.body,props:{name:""}})}();
+
+(function(l, r) { if (!l || l.getElementById('livereloadscript')) return; r = l.createElement('script'); r.async = 1; r.src = '//' + (self.location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1'; r.id = 'livereloadscript'; l.getElementsByTagName('head')[0].appendChild(r) })(self.document);
+var app = (function () {
+    'use strict';
+
+    function noop() { }
+    function add_location(element, file, line, column, char) {
+        element.__svelte_meta = {
+            loc: { file, line, column, char }
+        };
+    }
+    function run(fn) {
+        return fn();
+    }
+    function blank_object() {
+        return Object.create(null);
+    }
+    function run_all(fns) {
+        fns.forEach(run);
+    }
+    function is_function(thing) {
+        return typeof thing === 'function';
+    }
+    function safe_not_equal(a, b) {
+        return a != a ? b == b : a !== b || ((a && typeof a === 'object') || typeof a === 'function');
+    }
+    function is_empty(obj) {
+        return Object.keys(obj).length === 0;
+    }
+    function append(target, node) {
+        target.appendChild(node);
+    }
+    function insert(target, node, anchor) {
+        target.insertBefore(node, anchor || null);
+    }
+    function detach(node) {
+        node.parentNode.removeChild(node);
+    }
+    function destroy_each(iterations, detaching) {
+        for (let i = 0; i < iterations.length; i += 1) {
+            if (iterations[i])
+                iterations[i].d(detaching);
+        }
+    }
+    function element(name) {
+        return document.createElement(name);
+    }
+    function text(data) {
+        return document.createTextNode(data);
+    }
+    function space() {
+        return text(' ');
+    }
+    function listen(node, event, handler, options) {
+        node.addEventListener(event, handler, options);
+        return () => node.removeEventListener(event, handler, options);
+    }
+    function attr(node, attribute, value) {
+        if (value == null)
+            node.removeAttribute(attribute);
+        else if (node.getAttribute(attribute) !== value)
+            node.setAttribute(attribute, value);
+    }
+    function children(element) {
+        return Array.from(element.childNodes);
+    }
+    function set_input_value(input, value) {
+        input.value = value == null ? '' : value;
+    }
+    function select_option(select, value) {
+        for (let i = 0; i < select.options.length; i += 1) {
+            const option = select.options[i];
+            if (option.__value === value) {
+                option.selected = true;
+                return;
+            }
+        }
+        select.selectedIndex = -1; // no option should be selected
+    }
+    function select_value(select) {
+        const selected_option = select.querySelector(':checked') || select.options[0];
+        return selected_option && selected_option.__value;
+    }
+    function custom_event(type, detail, bubbles = false) {
+        const e = document.createEvent('CustomEvent');
+        e.initCustomEvent(type, bubbles, false, detail);
+        return e;
+    }
+
+    let current_component;
+    function set_current_component(component) {
+        current_component = component;
+    }
+    function get_current_component() {
+        if (!current_component)
+            throw new Error('Function called outside component initialization');
+        return current_component;
+    }
+    function onMount(fn) {
+        get_current_component().$$.on_mount.push(fn);
+    }
+
+    const dirty_components = [];
+    const binding_callbacks = [];
+    const render_callbacks = [];
+    const flush_callbacks = [];
+    const resolved_promise = Promise.resolve();
+    let update_scheduled = false;
+    function schedule_update() {
+        if (!update_scheduled) {
+            update_scheduled = true;
+            resolved_promise.then(flush);
+        }
+    }
+    function add_render_callback(fn) {
+        render_callbacks.push(fn);
+    }
+    let flushing = false;
+    const seen_callbacks = new Set();
+    function flush() {
+        if (flushing)
+            return;
+        flushing = true;
+        do {
+            // first, call beforeUpdate functions
+            // and update components
+            for (let i = 0; i < dirty_components.length; i += 1) {
+                const component = dirty_components[i];
+                set_current_component(component);
+                update(component.$$);
+            }
+            set_current_component(null);
+            dirty_components.length = 0;
+            while (binding_callbacks.length)
+                binding_callbacks.pop()();
+            // then, once components are updated, call
+            // afterUpdate functions. This may cause
+            // subsequent updates...
+            for (let i = 0; i < render_callbacks.length; i += 1) {
+                const callback = render_callbacks[i];
+                if (!seen_callbacks.has(callback)) {
+                    // ...so guard against infinite loops
+                    seen_callbacks.add(callback);
+                    callback();
+                }
+            }
+            render_callbacks.length = 0;
+        } while (dirty_components.length);
+        while (flush_callbacks.length) {
+            flush_callbacks.pop()();
+        }
+        update_scheduled = false;
+        flushing = false;
+        seen_callbacks.clear();
+    }
+    function update($$) {
+        if ($$.fragment !== null) {
+            $$.update();
+            run_all($$.before_update);
+            const dirty = $$.dirty;
+            $$.dirty = [-1];
+            $$.fragment && $$.fragment.p($$.ctx, dirty);
+            $$.after_update.forEach(add_render_callback);
+        }
+    }
+    const outroing = new Set();
+    function transition_in(block, local) {
+        if (block && block.i) {
+            outroing.delete(block);
+            block.i(local);
+        }
+    }
+    function mount_component(component, target, anchor, customElement) {
+        const { fragment, on_mount, on_destroy, after_update } = component.$$;
+        fragment && fragment.m(target, anchor);
+        if (!customElement) {
+            // onMount happens before the initial afterUpdate
+            add_render_callback(() => {
+                const new_on_destroy = on_mount.map(run).filter(is_function);
+                if (on_destroy) {
+                    on_destroy.push(...new_on_destroy);
+                }
+                else {
+                    // Edge case - component was destroyed immediately,
+                    // most likely as a result of a binding initialising
+                    run_all(new_on_destroy);
+                }
+                component.$$.on_mount = [];
+            });
+        }
+        after_update.forEach(add_render_callback);
+    }
+    function destroy_component(component, detaching) {
+        const $$ = component.$$;
+        if ($$.fragment !== null) {
+            run_all($$.on_destroy);
+            $$.fragment && $$.fragment.d(detaching);
+            // TODO null out other refs, including component.$$ (but need to
+            // preserve final state?)
+            $$.on_destroy = $$.fragment = null;
+            $$.ctx = [];
+        }
+    }
+    function make_dirty(component, i) {
+        if (component.$$.dirty[0] === -1) {
+            dirty_components.push(component);
+            schedule_update();
+            component.$$.dirty.fill(0);
+        }
+        component.$$.dirty[(i / 31) | 0] |= (1 << (i % 31));
+    }
+    function init(component, options, instance, create_fragment, not_equal, props, append_styles, dirty = [-1]) {
+        const parent_component = current_component;
+        set_current_component(component);
+        const $$ = component.$$ = {
+            fragment: null,
+            ctx: null,
+            // state
+            props,
+            update: noop,
+            not_equal,
+            bound: blank_object(),
+            // lifecycle
+            on_mount: [],
+            on_destroy: [],
+            on_disconnect: [],
+            before_update: [],
+            after_update: [],
+            context: new Map(parent_component ? parent_component.$$.context : options.context || []),
+            // everything else
+            callbacks: blank_object(),
+            dirty,
+            skip_bound: false,
+            root: options.target || parent_component.$$.root
+        };
+        append_styles && append_styles($$.root);
+        let ready = false;
+        $$.ctx = instance
+            ? instance(component, options.props || {}, (i, ret, ...rest) => {
+                const value = rest.length ? rest[0] : ret;
+                if ($$.ctx && not_equal($$.ctx[i], $$.ctx[i] = value)) {
+                    if (!$$.skip_bound && $$.bound[i])
+                        $$.bound[i](value);
+                    if (ready)
+                        make_dirty(component, i);
+                }
+                return ret;
+            })
+            : [];
+        $$.update();
+        ready = true;
+        run_all($$.before_update);
+        // `false` as a special case of no DOM component
+        $$.fragment = create_fragment ? create_fragment($$.ctx) : false;
+        if (options.target) {
+            if (options.hydrate) {
+                const nodes = children(options.target);
+                // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+                $$.fragment && $$.fragment.l(nodes);
+                nodes.forEach(detach);
+            }
+            else {
+                // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+                $$.fragment && $$.fragment.c();
+            }
+            if (options.intro)
+                transition_in(component.$$.fragment);
+            mount_component(component, options.target, options.anchor, options.customElement);
+            flush();
+        }
+        set_current_component(parent_component);
+    }
+    /**
+     * Base class for Svelte components. Used when dev=false.
+     */
+    class SvelteComponent {
+        $destroy() {
+            destroy_component(this, 1);
+            this.$destroy = noop;
+        }
+        $on(type, callback) {
+            const callbacks = (this.$$.callbacks[type] || (this.$$.callbacks[type] = []));
+            callbacks.push(callback);
+            return () => {
+                const index = callbacks.indexOf(callback);
+                if (index !== -1)
+                    callbacks.splice(index, 1);
+            };
+        }
+        $set($$props) {
+            if (this.$$set && !is_empty($$props)) {
+                this.$$.skip_bound = true;
+                this.$$set($$props);
+                this.$$.skip_bound = false;
+            }
+        }
+    }
+
+    function dispatch_dev(type, detail) {
+        document.dispatchEvent(custom_event(type, Object.assign({ version: '3.42.4' }, detail), true));
+    }
+    function append_dev(target, node) {
+        dispatch_dev('SvelteDOMInsert', { target, node });
+        append(target, node);
+    }
+    function insert_dev(target, node, anchor) {
+        dispatch_dev('SvelteDOMInsert', { target, node, anchor });
+        insert(target, node, anchor);
+    }
+    function detach_dev(node) {
+        dispatch_dev('SvelteDOMRemove', { node });
+        detach(node);
+    }
+    function listen_dev(node, event, handler, options, has_prevent_default, has_stop_propagation) {
+        const modifiers = options === true ? ['capture'] : options ? Array.from(Object.keys(options)) : [];
+        if (has_prevent_default)
+            modifiers.push('preventDefault');
+        if (has_stop_propagation)
+            modifiers.push('stopPropagation');
+        dispatch_dev('SvelteDOMAddEventListener', { node, event, handler, modifiers });
+        const dispose = listen(node, event, handler, options);
+        return () => {
+            dispatch_dev('SvelteDOMRemoveEventListener', { node, event, handler, modifiers });
+            dispose();
+        };
+    }
+    function attr_dev(node, attribute, value) {
+        attr(node, attribute, value);
+        if (value == null)
+            dispatch_dev('SvelteDOMRemoveAttribute', { node, attribute });
+        else
+            dispatch_dev('SvelteDOMSetAttribute', { node, attribute, value });
+    }
+    function set_data_dev(text, data) {
+        data = '' + data;
+        if (text.wholeText === data)
+            return;
+        dispatch_dev('SvelteDOMSetData', { node: text, data });
+        text.data = data;
+    }
+    function validate_each_argument(arg) {
+        if (typeof arg !== 'string' && !(arg && typeof arg === 'object' && 'length' in arg)) {
+            let msg = '{#each} only iterates over array-like objects.';
+            if (typeof Symbol === 'function' && arg && Symbol.iterator in arg) {
+                msg += ' You can use a spread to convert this iterable into an array.';
+            }
+            throw new Error(msg);
+        }
+    }
+    function validate_slots(name, slot, keys) {
+        for (const slot_key of Object.keys(slot)) {
+            if (!~keys.indexOf(slot_key)) {
+                console.warn(`<${name}> received an unexpected slot "${slot_key}".`);
+            }
+        }
+    }
+    /**
+     * Base class for Svelte components with some minor dev-enhancements. Used when dev=true.
+     */
+    class SvelteComponentDev extends SvelteComponent {
+        constructor(options) {
+            if (!options || (!options.target && !options.$$inline)) {
+                throw new Error("'target' is a required option");
+            }
+            super();
+        }
+        $destroy() {
+            super.$destroy();
+            this.$destroy = () => {
+                console.warn('Component was already destroyed'); // eslint-disable-line no-console
+            };
+        }
+        $capture_state() { }
+        $inject_state() { }
+    }
+
+    function getImage(src){
+        let image = new Image();
+        return new Promise((resolve,reject)=>{
+            image.src = src;
+            image.onload = () => resolve(image);
+            image.onerror = error => reject(image);
+        })
+    }
+
+    function getParam(key){
+        let params;
+        try{
+            params = new URLSearchParams(window.location.search);
+        } catch(e){
+            console.error(e);
+        }
+        if(params.has(key)){
+            return params.get(key);
+        }
+        return "";
+    }
+
+    function getDefaultText(){
+        let superText = getParam("super");
+        let mainText = getParam("main");
+        let subText = getParam("sub");
+        if(superText || mainText || subText){
+            return {superText,mainText,subText}
+        }
+        return {
+            superText : "",
+            mainText : "HOLLOW KNIGHT ",
+            subText : "Title generator"
+        }
+    }
+
+    function rAF(loop){
+        let frame;
+        (function looper() {
+            frame = requestAnimationFrame(looper);
+            loop();
+        })();
+        return () => {
+            cancelAnimationFrame(frame);
+        };
+    }
+
+    class canvasHelper{
+        constructor(canvas){
+            this.canvas = canvas;
+            this.ctx = canvas.getContext('2d');
+        }
+        color = 'white';
+        fontname = "perpetuabold";
+        clear({x,y,w,h} = {}){
+            this.ctx.clearRect(x || 0, y || 0,w || this.canvas.width,h || this.canvas.height);
+        }
+        withShadow(callback,{color,x,y,blur} = {}){
+            this.ctx.save();
+            this.ctx.shadowColor = color || this.color;
+            this.ctx.shadowOffsetX = x || 0;
+            this.ctx.shadowOffsetY = y || 0;
+            this.ctx.shadowBlur = blur != undefined ? blur : 10;
+            callback();
+            this.ctx.restore();
+        }
+        addImage(image,{x,y,w,h} = {}){
+            this.ctx.drawImage(image, x || 0, y || 0, w || image.width,h || image.height);
+        }
+        addText(txt,{font,color,size,ypos,blur} = {}){
+            this.ctx.save();
+            this.ctx.font = `${size}px ${font || this.fontname}`;
+            this.ctx.fillStyle = color || this.color;
+            this.ctx.textBaseline = 'top';
+            this.ctx.shadowColor = color || this.color;
+            this.ctx.shadowOffsetX = 0;
+            this.ctx.shadowOffsetY = 0;
+            this.ctx.shadowBlur = blur != undefined ? blur : 10;
+            let width = this.ctx.measureText(txt).width;
+            for(width = this.ctx.measureText(txt).width; width > this.canvas.width; width = this.ctx.measureText(txt).width){
+                size = size*0.90;
+                this.ctx.font = `${size}px ${this.fontname}`;
+            }
+            this.ctx.fillText  (txt, this.canvas.width/2 - width/2, ypos-size/2 );
+            this.ctx.restore();
+        }
+        download(filename){
+            let image = this.canvas.toDataURL("image/png", 1.0).replace("image/png", "image/octet-stream");
+            var link = document.createElement('a');
+            link.download = filename || "download.png";
+            link.href = image;
+            link.click();
+        }
+    }
+
+    class BannerParams{
+        banner = undefined;
+        constructor(name,bannerUrl,{needsShadow,color,blur,size,superText,mainText,subText} = {}){
+            this.name = name;
+            this.bannerUrl = bannerUrl;
+            this.color = color;
+            this.blur = blur || 10;
+            this.needsShadow = !!needsShadow;
+            this.size = size || {width: 1274, height: 521};
+            this.superText = superText || { size : 32, ypos : 135};
+            this.mainText = mainText || { size : 128, ypos : 215};
+            this.subText = subText || { size : 32, ypos : 270};
+        }
+
+        use(){
+            if(!this.loading && !this.banner){
+                getImage(this.bannerUrl).then( i => { this.banner = i;  this.loading = false;});
+                this.loading = true;
+            }
+        }
+
+        isReady(){ return !!this.banner; }
+
+    }
+
+    /* src/App.svelte generated by Svelte v3.42.4 */
+
+    const file = "src/App.svelte";
+
+    function get_each_context(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[17] = list[i];
+    	child_ctx[19] = i;
+    	return child_ctx;
+    }
+
+    // (134:6) {#each allBanners as banner,index}
+    function create_each_block(ctx) {
+    	let option;
+    	let t0_value = /*banner*/ ctx[17].name + "";
+    	let t0;
+    	let t1;
+
+    	const block = {
+    		c: function create() {
+    			option = element("option");
+    			t0 = text(t0_value);
+    			t1 = space();
+    			option.__value = /*index*/ ctx[19];
+    			option.value = option.__value;
+    			add_location(option, file, 134, 7, 4211);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, option, anchor);
+    			append_dev(option, t0);
+    			append_dev(option, t1);
+    		},
+    		p: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(option);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_each_block.name,
+    		type: "each",
+    		source: "(134:6) {#each allBanners as banner,index}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function create_fragment(ctx) {
+    	let main;
+    	let h1;
+    	let t1;
+    	let div10;
+    	let div0;
+    	let t2;
+    	let div1;
+    	let canvas;
+    	let canvas_width_value;
+    	let canvas_height_value;
+    	let t3;
+    	let div9;
+    	let div8;
+    	let div2;
+    	let label0;
+    	let t5;
+    	let select;
+    	let t6;
+    	let div3;
+    	let label1;
+    	let input0;
+    	let t7;
+    	let t8;
+    	let div4;
+    	let label2;
+    	let t10;
+    	let input1;
+    	let br0;
+    	let t11;
+    	let div5;
+    	let label3;
+    	let t13;
+    	let input2;
+    	let br1;
+    	let t14;
+    	let div6;
+    	let label4;
+    	let t16;
+    	let input3;
+    	let br2;
+    	let t17;
+    	let div7;
+    	let button;
+    	let t19;
+    	let div13;
+    	let div11;
+    	let t21;
+    	let div12;
+    	let a0;
+    	let t22;
+    	let t23;
+    	let footer;
+    	let div15;
+    	let div14;
+    	let t24;
+    	let a1;
+    	let mounted;
+    	let dispose;
+    	let each_value = /*allBanners*/ ctx[7];
+    	validate_each_argument(each_value);
+    	let each_blocks = [];
+
+    	for (let i = 0; i < each_value.length; i += 1) {
+    		each_blocks[i] = create_each_block(get_each_context(ctx, each_value, i));
+    	}
+
+    	const block = {
+    		c: function create() {
+    			main = element("main");
+    			h1 = element("h1");
+    			h1.textContent = "Hollow Knight Title Generator";
+    			t1 = space();
+    			div10 = element("div");
+    			div0 = element("div");
+    			t2 = space();
+    			div1 = element("div");
+    			canvas = element("canvas");
+    			t3 = space();
+    			div9 = element("div");
+    			div8 = element("div");
+    			div2 = element("div");
+    			label0 = element("label");
+    			label0.textContent = "Title style";
+    			t5 = space();
+    			select = element("select");
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].c();
+    			}
+
+    			t6 = space();
+    			div3 = element("div");
+    			label1 = element("label");
+    			input0 = element("input");
+    			t7 = text("\n\t\t\t\t\t\tEnable blur");
+    			t8 = space();
+    			div4 = element("div");
+    			label2 = element("label");
+    			label2.textContent = "Superscript";
+    			t10 = space();
+    			input1 = element("input");
+    			br0 = element("br");
+    			t11 = space();
+    			div5 = element("div");
+    			label3 = element("label");
+    			label3.textContent = "Main text";
+    			t13 = space();
+    			input2 = element("input");
+    			br1 = element("br");
+    			t14 = space();
+    			div6 = element("div");
+    			label4 = element("label");
+    			label4.textContent = "Subscript";
+    			t16 = space();
+    			input3 = element("input");
+    			br2 = element("br");
+    			t17 = space();
+    			div7 = element("div");
+    			button = element("button");
+    			button.textContent = "Download";
+    			t19 = space();
+    			div13 = element("div");
+    			div11 = element("div");
+    			div11.textContent = "Sharable url";
+    			t21 = space();
+    			div12 = element("div");
+    			a0 = element("a");
+    			t22 = text(/*link*/ ctx[0]);
+    			t23 = space();
+    			footer = element("footer");
+    			div15 = element("div");
+    			div14 = element("div");
+    			t24 = text("Found a bug? Have any suggestions? Join us in the ");
+    			a1 = element("a");
+    			a1.textContent = "Hollow Knight Modding Server";
+    			attr_dev(h1, "class", "svelte-91a1jx");
+    			add_location(h1, file, 121, 1, 3592);
+    			attr_dev(div0, "class", "pure-u-1 pure-u-md-1-6");
+    			add_location(div0, file, 123, 2, 3655);
+    			attr_dev(canvas, "class", "mb-15 svelte-91a1jx");
+    			attr_dev(canvas, "width", canvas_width_value = /*currentBanner*/ ctx[5].size?.width);
+    			attr_dev(canvas, "height", canvas_height_value = /*currentBanner*/ ctx[5].size?.height);
+    			add_location(canvas, file, 126, 3, 3743);
+    			attr_dev(div1, "class", "pure-u-1 pure-u-md-2-3");
+    			add_location(div1, file, 125, 2, 3703);
+    			attr_dev(label0, "class", "pure-u-1 pad-v svelte-91a1jx");
+    			add_location(label0, file, 131, 5, 3978);
+    			attr_dev(select, "class", "pure-u-1");
+    			if (/*selectedTitleIndex*/ ctx[4] === void 0) add_render_callback(() => /*select_change_handler*/ ctx[9].call(select));
+    			add_location(select, file, 132, 5, 4034);
+    			attr_dev(div2, "class", "pure-g svelte-91a1jx");
+    			add_location(div2, file, 130, 4, 3952);
+    			attr_dev(input0, "type", "checkbox");
+    			add_location(input0, file, 143, 6, 4381);
+    			attr_dev(label1, "class", "pure-u-1 pad-v svelte-91a1jx");
+    			add_location(label1, file, 142, 5, 4344);
+    			attr_dev(div3, "class", "pure-g svelte-91a1jx");
+    			add_location(div3, file, 141, 4, 4318);
+    			attr_dev(label2, "class", "pure-u-1 pad-v svelte-91a1jx");
+    			add_location(label2, file, 149, 5, 4503);
+    			attr_dev(input1, "class", "pure-u-1");
+    			attr_dev(input1, "type", "text");
+    			add_location(input1, file, 150, 5, 4559);
+    			add_location(br0, file, 150, 70, 4624);
+    			attr_dev(div4, "class", "pure-g svelte-91a1jx");
+    			add_location(div4, file, 148, 4, 4477);
+    			attr_dev(label3, "class", "pure-u-1 pad-v svelte-91a1jx");
+    			add_location(label3, file, 154, 5, 4671);
+    			attr_dev(input2, "class", "pure-u-1");
+    			attr_dev(input2, "type", "text");
+    			add_location(input2, file, 155, 5, 4725);
+    			add_location(br1, file, 155, 69, 4789);
+    			attr_dev(div5, "class", "pure-g svelte-91a1jx");
+    			add_location(div5, file, 153, 4, 4645);
+    			attr_dev(label4, "class", "pure-u-1 pad-v svelte-91a1jx");
+    			add_location(label4, file, 159, 5, 4836);
+    			attr_dev(input3, "class", "pure-u-1");
+    			attr_dev(input3, "type", "text");
+    			add_location(input3, file, 160, 5, 4890);
+    			add_location(br2, file, 160, 68, 4953);
+    			attr_dev(div6, "class", "pure-g svelte-91a1jx");
+    			add_location(div6, file, 158, 4, 4810);
+    			attr_dev(button, "class", "pure-u-1");
+    			add_location(button, file, 164, 5, 5012);
+    			attr_dev(div7, "class", "pure-g pad-v-2 svelte-91a1jx");
+    			add_location(div7, file, 163, 4, 4978);
+    			attr_dev(div8, "class", "box mt-0 svelte-91a1jx");
+    			add_location(div8, file, 129, 3, 3925);
+    			attr_dev(div9, "class", "pure-u-1 pure-u-md-1-6");
+    			add_location(div9, file, 128, 2, 3885);
+    			attr_dev(div10, "class", "pure-g svelte-91a1jx");
+    			add_location(div10, file, 122, 1, 3632);
+    			attr_dev(div11, "class", "pure-u-1 pure-u-md-1-2 pad-v svelte-91a1jx");
+    			add_location(div11, file, 170, 2, 5196);
+    			attr_dev(a0, "class", "fit-text svelte-91a1jx");
+    			attr_dev(a0, "href", /*link*/ ctx[0]);
+    			add_location(a0, file, 174, 3, 5307);
+    			attr_dev(div12, "class", "pure-u-1 pure-u-md-1-2");
+    			add_location(div12, file, 173, 2, 5267);
+    			attr_dev(div13, "class", "box svelte-91a1jx");
+    			add_location(div13, file, 169, 1, 5176);
+    			attr_dev(main, "class", "svelte-91a1jx");
+    			add_location(main, file, 120, 0, 3584);
+    			attr_dev(a1, "href", "https://discord.gg/rqsRHRt25h");
+    			attr_dev(a1, "target", "_blank");
+    			add_location(a1, file, 181, 53, 5487);
+    			attr_dev(div14, "class", "pure-u-1");
+    			add_location(div14, file, 180, 2, 5411);
+    			attr_dev(div15, "class", "pure-g svelte-91a1jx");
+    			add_location(div15, file, 179, 1, 5388);
+    			attr_dev(footer, "class", "svelte-91a1jx");
+    			add_location(footer, file, 178, 0, 5377);
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, main, anchor);
+    			append_dev(main, h1);
+    			append_dev(main, t1);
+    			append_dev(main, div10);
+    			append_dev(div10, div0);
+    			append_dev(div10, t2);
+    			append_dev(div10, div1);
+    			append_dev(div1, canvas);
+    			/*canvas_binding*/ ctx[8](canvas);
+    			append_dev(div10, t3);
+    			append_dev(div10, div9);
+    			append_dev(div9, div8);
+    			append_dev(div8, div2);
+    			append_dev(div2, label0);
+    			append_dev(div2, t5);
+    			append_dev(div2, select);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].m(select, null);
+    			}
+
+    			select_option(select, /*selectedTitleIndex*/ ctx[4]);
+    			append_dev(div8, t6);
+    			append_dev(div8, div3);
+    			append_dev(div3, label1);
+    			append_dev(label1, input0);
+    			input0.checked = /*enableBlur*/ ctx[3];
+    			append_dev(label1, t7);
+    			append_dev(div8, t8);
+    			append_dev(div8, div4);
+    			append_dev(div4, label2);
+    			append_dev(div4, t10);
+    			append_dev(div4, input1);
+    			set_input_value(input1, /*text*/ ctx[1].superText);
+    			append_dev(div4, br0);
+    			append_dev(div8, t11);
+    			append_dev(div8, div5);
+    			append_dev(div5, label3);
+    			append_dev(div5, t13);
+    			append_dev(div5, input2);
+    			set_input_value(input2, /*text*/ ctx[1].mainText);
+    			append_dev(div5, br1);
+    			append_dev(div8, t14);
+    			append_dev(div8, div6);
+    			append_dev(div6, label4);
+    			append_dev(div6, t16);
+    			append_dev(div6, input3);
+    			set_input_value(input3, /*text*/ ctx[1].subText);
+    			append_dev(div6, br2);
+    			append_dev(div8, t17);
+    			append_dev(div8, div7);
+    			append_dev(div7, button);
+    			append_dev(main, t19);
+    			append_dev(main, div13);
+    			append_dev(div13, div11);
+    			append_dev(div13, t21);
+    			append_dev(div13, div12);
+    			append_dev(div12, a0);
+    			append_dev(a0, t22);
+    			insert_dev(target, t23, anchor);
+    			insert_dev(target, footer, anchor);
+    			append_dev(footer, div15);
+    			append_dev(div15, div14);
+    			append_dev(div14, t24);
+    			append_dev(div14, a1);
+
+    			if (!mounted) {
+    				dispose = [
+    					listen_dev(select, "change", /*select_change_handler*/ ctx[9]),
+    					listen_dev(select, "change", /*change_handler*/ ctx[10], false, false, false),
+    					listen_dev(input0, "change", /*input0_change_handler*/ ctx[11]),
+    					listen_dev(input1, "input", /*input1_input_handler*/ ctx[12]),
+    					listen_dev(input2, "input", /*input2_input_handler*/ ctx[13]),
+    					listen_dev(input3, "input", /*input3_input_handler*/ ctx[14]),
+    					listen_dev(
+    						button,
+    						"click",
+    						function () {
+    							if (is_function(/*cH*/ ctx[6].download(`${/*text*/ ctx[1].superText}${/*text*/ ctx[1].mainText}${/*text*/ ctx[1].subText}.png`))) /*cH*/ ctx[6].download(`${/*text*/ ctx[1].superText}${/*text*/ ctx[1].mainText}${/*text*/ ctx[1].subText}.png`).apply(this, arguments);
+    						},
+    						false,
+    						false,
+    						false
+    					)
+    				];
+
+    				mounted = true;
+    			}
+    		},
+    		p: function update(new_ctx, [dirty]) {
+    			ctx = new_ctx;
+
+    			if (dirty & /*currentBanner*/ 32 && canvas_width_value !== (canvas_width_value = /*currentBanner*/ ctx[5].size?.width)) {
+    				attr_dev(canvas, "width", canvas_width_value);
+    			}
+
+    			if (dirty & /*currentBanner*/ 32 && canvas_height_value !== (canvas_height_value = /*currentBanner*/ ctx[5].size?.height)) {
+    				attr_dev(canvas, "height", canvas_height_value);
+    			}
+
+    			if (dirty & /*allBanners*/ 128) {
+    				each_value = /*allBanners*/ ctx[7];
+    				validate_each_argument(each_value);
+    				let i;
+
+    				for (i = 0; i < each_value.length; i += 1) {
+    					const child_ctx = get_each_context(ctx, each_value, i);
+
+    					if (each_blocks[i]) {
+    						each_blocks[i].p(child_ctx, dirty);
+    					} else {
+    						each_blocks[i] = create_each_block(child_ctx);
+    						each_blocks[i].c();
+    						each_blocks[i].m(select, null);
+    					}
+    				}
+
+    				for (; i < each_blocks.length; i += 1) {
+    					each_blocks[i].d(1);
+    				}
+
+    				each_blocks.length = each_value.length;
+    			}
+
+    			if (dirty & /*selectedTitleIndex*/ 16) {
+    				select_option(select, /*selectedTitleIndex*/ ctx[4]);
+    			}
+
+    			if (dirty & /*enableBlur*/ 8) {
+    				input0.checked = /*enableBlur*/ ctx[3];
+    			}
+
+    			if (dirty & /*text*/ 2 && input1.value !== /*text*/ ctx[1].superText) {
+    				set_input_value(input1, /*text*/ ctx[1].superText);
+    			}
+
+    			if (dirty & /*text*/ 2 && input2.value !== /*text*/ ctx[1].mainText) {
+    				set_input_value(input2, /*text*/ ctx[1].mainText);
+    			}
+
+    			if (dirty & /*text*/ 2 && input3.value !== /*text*/ ctx[1].subText) {
+    				set_input_value(input3, /*text*/ ctx[1].subText);
+    			}
+
+    			if (dirty & /*link*/ 1) set_data_dev(t22, /*link*/ ctx[0]);
+
+    			if (dirty & /*link*/ 1) {
+    				attr_dev(a0, "href", /*link*/ ctx[0]);
+    			}
+    		},
+    		i: noop,
+    		o: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(main);
+    			/*canvas_binding*/ ctx[8](null);
+    			destroy_each(each_blocks, detaching);
+    			if (detaching) detach_dev(t23);
+    			if (detaching) detach_dev(footer);
+    			mounted = false;
+    			run_all(dispose);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance($$self, $$props, $$invalidate) {
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots('App', slots, []);
+    	let link = "";
+    	let text = getDefaultText();
+    	let titleCanvas;
+    	let enableBlur = getParam("title") == "true" || true;
+    	let multiplier = 1.71;
+
+    	let allBanners = [
+    		new BannerParams("Base",
+    		"Assets/banner.png",
+    		{
+    				size: { width: 1274, height: 521 },
+    				superText: { size: 32, ypos: 135 },
+    				mainText: { size: 128, ypos: 215 },
+    				subText: { size: 32, ypos: 270 }
+    			}),
+    		new BannerParams("Hi-res",
+    		"Assets/bannerhires.png",
+    		{
+    				needsShadow: true,
+    				blur: 30,
+    				size: { width: 3500, height: 1280 },
+    				superText: { size: 32 * 2.4568, ypos: 135 * 2.4568 },
+    				mainText: { size: 128 * 2.4568, ypos: 215 * 2.4568 },
+    				subText: { size: 32 * 2.4568, ypos: 270 * 2.4568 }
+    			}),
+    		new BannerParams("Hi-res Black",
+    		"Assets/hollow_knight_title_large_black.png",
+    		{
+    				color: "black",
+    				needsShadow: true,
+    				blur: 10,
+    				size: { width: 3252, height: 1191 },
+    				superText: { size: 32 * 2.25, ypos: 135 * 2.25 },
+    				mainText: { size: 128 * 2.25, ypos: 215 * 2.25 },
+    				subText: { size: 32 * 2.25, ypos: 270 * 2.25 }
+    			}),
+    		new BannerParams("VoidHeart",
+    		"Assets/Logo_Voidheart.png",
+    		{
+    				needsShadow: true,
+    				blur: 10,
+    				size: { width: 2200, height: 663 },
+    				superText: { size: 32 * 1.71, ypos: 135 * 1.71 },
+    				mainText: { size: 128 * 1.71, ypos: 215 * 1.71 },
+    				subText: { size: 32 * 1.71, ypos: 270 * 1.71 }
+    			}),
+    		new BannerParams("VoidHeart Black",
+    		"Assets/Logo_Voidheart_Black.png",
+    		{
+    				color: "black",
+    				needsShadow: true,
+    				blur: 10,
+    				size: { width: 2200, height: 663 },
+    				superText: { size: 32 * 1.71, ypos: 135 * 1.71 },
+    				mainText: { size: 128 * 1.71, ypos: 215 * 1.71 },
+    				subText: { size: 32 * 1.71, ypos: 270 * 1.71 }
+    			})
+    	];
+
+    	let selectedTitleIndex = 0;
+
+    	try {
+    		selectedTitleIndex = parseInt(getParam("title")) || 0;
+    	} catch(e) {
+    		
+    	}
+
+    	let currentBanner = allBanners[selectedTitleIndex];
+    	let cH;
+
+    	function updateLink() {
+    		let templink = `${window.location.origin}${window.location.pathname}?title=${selectedTitleIndex}&blur=${enableBlur}&${text.superText && `super=${text.superText}&`}${text.mainText && `main=${text.mainText}&`}${text.subText && `sub=${text.subText}`}`;
+
+    		if (link != templink) {
+    			$$invalidate(0, link = templink);
+    			window.history.pushState(link, "Title Change", link);
+    		}
+    	}
+
+    	onMount(() => {
+    		//const ctx = titleCanvas.getContext('2d');
+    		$$invalidate(6, cH = new canvasHelper(titleCanvas));
+
+    		return rAF(() => {
+    			updateLink();
+
+    			if (!currentBanner.isReady()) {
+    				return currentBanner.use();
+    			}
+
+    			cH.clear();
+
+    			if (currentBanner.needsShadow && enableBlur) {
+    				cH.withShadow(
+    					() => {
+    						cH.addImage(currentBanner.banner);
+    					},
+    					{
+    						blur: currentBanner.blur,
+    						color: currentBanner.color
+    					}
+    				);
+    			} else {
+    				cH.addImage(currentBanner.banner);
+    			}
+
+    			cH.addText(text.superText.toUpperCase(), {
+    				...currentBanner.superText,
+    				blur: enableBlur ? currentBanner.blur : 0,
+    				color: currentBanner.color
+    			});
+
+    			cH.addText(text.mainText.toUpperCase(), {
+    				size: currentBanner.mainText.size + (!text.superText ? currentBanner.superText.size : 0) + (!text.subText ? currentBanner.subText.size : 0),
+    				ypos: currentBanner.mainText.ypos - (!text.superText ? currentBanner.superText.size / 2 : 0) + (!text.subText ? currentBanner.subText.size / 2 : 0),
+    				blur: enableBlur ? currentBanner.blur : 0,
+    				color: currentBanner.color
+    			});
+
+    			cH.addText(text.subText.toUpperCase(), {
+    				...currentBanner.subText,
+    				blur: enableBlur ? currentBanner.blur : 0,
+    				color: currentBanner.color
+    			});
+    		});
+    	});
+
+    	const writable_props = [];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<App> was created with unknown prop '${key}'`);
+    	});
+
+    	function canvas_binding($$value) {
+    		binding_callbacks[$$value ? 'unshift' : 'push'](() => {
+    			titleCanvas = $$value;
+    			$$invalidate(2, titleCanvas);
+    		});
+    	}
+
+    	function select_change_handler() {
+    		selectedTitleIndex = select_value(this);
+    		$$invalidate(4, selectedTitleIndex);
+    	}
+
+    	const change_handler = () => {
+    		$$invalidate(5, currentBanner = allBanners[selectedTitleIndex]);
+    	};
+
+    	function input0_change_handler() {
+    		enableBlur = this.checked;
+    		$$invalidate(3, enableBlur);
+    	}
+
+    	function input1_input_handler() {
+    		text.superText = this.value;
+    		$$invalidate(1, text);
+    	}
+
+    	function input2_input_handler() {
+    		text.mainText = this.value;
+    		$$invalidate(1, text);
+    	}
+
+    	function input3_input_handler() {
+    		text.subText = this.value;
+    		$$invalidate(1, text);
+    	}
+
+    	$$self.$capture_state = () => ({
+    		onMount,
+    		getParam,
+    		getDefaultText,
+    		rAF,
+    		canvasHelper,
+    		BannerParams,
+    		link,
+    		text,
+    		titleCanvas,
+    		enableBlur,
+    		multiplier,
+    		allBanners,
+    		selectedTitleIndex,
+    		currentBanner,
+    		cH,
+    		updateLink
+    	});
+
+    	$$self.$inject_state = $$props => {
+    		if ('link' in $$props) $$invalidate(0, link = $$props.link);
+    		if ('text' in $$props) $$invalidate(1, text = $$props.text);
+    		if ('titleCanvas' in $$props) $$invalidate(2, titleCanvas = $$props.titleCanvas);
+    		if ('enableBlur' in $$props) $$invalidate(3, enableBlur = $$props.enableBlur);
+    		if ('multiplier' in $$props) multiplier = $$props.multiplier;
+    		if ('allBanners' in $$props) $$invalidate(7, allBanners = $$props.allBanners);
+    		if ('selectedTitleIndex' in $$props) $$invalidate(4, selectedTitleIndex = $$props.selectedTitleIndex);
+    		if ('currentBanner' in $$props) $$invalidate(5, currentBanner = $$props.currentBanner);
+    		if ('cH' in $$props) $$invalidate(6, cH = $$props.cH);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	return [
+    		link,
+    		text,
+    		titleCanvas,
+    		enableBlur,
+    		selectedTitleIndex,
+    		currentBanner,
+    		cH,
+    		allBanners,
+    		canvas_binding,
+    		select_change_handler,
+    		change_handler,
+    		input0_change_handler,
+    		input1_input_handler,
+    		input2_input_handler,
+    		input3_input_handler
+    	];
+    }
+
+    class App extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance, create_fragment, safe_not_equal, {});
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "App",
+    			options,
+    			id: create_fragment.name
+    		});
+    	}
+    }
+
+    const app = new App({
+    	target: document.body,
+    	props: {
+    		name: ''
+    	}
+    });
+
+    return app;
+
+}());
 //# sourceMappingURL=bundle.js.map

@@ -10,11 +10,20 @@ body {
 	margin: 0;
 	padding: 8px;
 	box-sizing: border-box;
-	font-family: "perpetua", serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.mt-0{
+	margin-top:0 !important;
+}
+
+.mb-15{
+	margin-bottom:15px !important;
 }
 
 a {
-	color: rgb(0,100,200);
+	color: #FFF;
 	text-decoration: none;
 }
 
@@ -23,7 +32,7 @@ a:hover {
 }
 
 a:visited {
-	color: rgb(0,80,160);
+	color: #F0F0F0;
 }
 
 label {
