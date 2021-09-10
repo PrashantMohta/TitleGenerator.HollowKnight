@@ -124,12 +124,12 @@
 		<div class="pure-u-1 pure-u-md-1-6">
 		</div>
 		<div class="pure-u-1 pure-u-md-2-3">
-			<canvas bind:this={titleCanvas} width="{currentBanner.size?.width}" height="{currentBanner.size?.height}"></canvas>
+			<canvas class="mb-15" bind:this={titleCanvas} width="{currentBanner.size?.width}" height="{currentBanner.size?.height}"></canvas>
 		</div>	
 		<div class="pure-u-1 pure-u-md-1-6">
-			<div>
+			<div class="box mt-0">
 				<div class="pure-g">
-					<label class="pure-u-1 pad-v">Title</label> 
+					<label class="pure-u-1 pad-v">Title style</label> 
 					<select class="pure-u-1"  bind:value={selectedTitleIndex} on:change="{() => { currentBanner = allBanners[selectedTitleIndex]}}">
 						{#each allBanners as banner,index}
 							<option value={index}>
@@ -142,42 +142,64 @@
 				<div class="pure-g">
 					<label class="pure-u-1 pad-v">
 						<input type=checkbox bind:checked={enableBlur}>
-						Enable Blur
+						Enable blur
 					</label>
 				</div>
 
 				<div class="pure-g">
-					<label class="pure-u-1 pad-v">Super</label> 
+					<label class="pure-u-1 pad-v">Superscript</label> 
 					<input class="pure-u-1" bind:value={text.superText} type="text" ><br>
 				</div>
 
 				<div class="pure-g">
-					<label class="pure-u-1 pad-v">Main</label> 
+					<label class="pure-u-1 pad-v">Main text</label> 
 					<input class="pure-u-1" bind:value={text.mainText} type="text" ><br>
 				</div>
 
 				<div class="pure-g">
-					<label class="pure-u-1 pad-v">Sub</label> 
+					<label class="pure-u-1 pad-v">Subscript</label> 
 					<input class="pure-u-1" bind:value={text.subText} type="text" ><br>
 				</div>
 				
 				<div class="pure-g pad-v-2">
-					<button class="pure-u-1" on:click={cH.download(`${text.superText}${text.mainText}${text.subText}`)}> Download </button>
+					<button class="pure-u-1" on:click={cH.download(`${text.superText}${text.mainText}${text.subText}.png`)}> Download </button>
 				</div>
 			</div>
 		</div>	
 	</div>
-	<div>
+	<div class="box">
 		<div class="pure-u-1 pure-u-md-1-2 pad-v">
 			Sharable url 
 		</div>
 		<div class="pure-u-1 pure-u-md-1-2">
-			<a href="{link}">{link}</a>
+			<a class="fit-text" href="{link}">{link}</a>
 		</div>
 	</div>
 </main>
-
+<footer >
+	<div class="pure-g">
+		<div class="pure-u-1">
+			Found a bug? Have any suggestions? Join us in the <a href="https://discord.gg/rqsRHRt25h" target="_blank">Hollow Knight Modding Server</a> 
+		</div>
+	</div>
+</footer>
 <style>
+	.box{
+		box-shadow: 0 0 0px 5px #103460;
+		padding: 15px;
+		margin: 15px;
+		border-radius: 5px;
+	}
+	canvas{
+		border-radius: 5px;
+		box-shadow: 0 0 0px 5px #103460;
+	}
+	.fit-text{
+		max-width: 80%;
+		display: block;
+		word-break: break-all;
+		margin: auto;
+	}
 	.pure-g{
 		padding-left : 15px;
 		padding-right: 15px;
@@ -196,11 +218,14 @@
 		background:#16213E;
 		width:100%;
 	}
-	main {
+	main,footer {
 		text-align: center;
-		margin: 0 auto;
 	}
-
+	footer {
+		display: flex;
+	    justify-content: center;
+		padding-top:15px;
+	}
 	h1 {
 		text-transform: uppercase;
 		font-weight: 100;
