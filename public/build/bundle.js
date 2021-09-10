@@ -500,15 +500,15 @@ var app = (function () {
 
     function get_each_context(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[17] = list[i];
-    	child_ctx[19] = i;
+    	child_ctx[19] = list[i];
+    	child_ctx[21] = i;
     	return child_ctx;
     }
 
-    // (134:6) {#each allBanners as banner,index}
+    // (159:6) {#each allBanners as banner,index}
     function create_each_block(ctx) {
     	let option;
-    	let t0_value = /*banner*/ ctx[17].name + "";
+    	let t0_value = /*banner*/ ctx[19].name + "";
     	let t0;
     	let t1;
 
@@ -517,9 +517,9 @@ var app = (function () {
     			option = element("option");
     			t0 = text(t0_value);
     			t1 = space();
-    			option.__value = /*index*/ ctx[19];
+    			option.__value = /*index*/ ctx[21];
     			option.value = option.__value;
-    			add_location(option, file, 134, 7, 4211);
+    			add_location(option, file, 159, 7, 5101);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, option, anchor);
@@ -536,7 +536,7 @@ var app = (function () {
     		block,
     		id: create_each_block.name,
     		type: "each",
-    		source: "(134:6) {#each allBanners as banner,index}",
+    		source: "(159:6) {#each allBanners as banner,index}",
     		ctx
     	});
 
@@ -547,7 +547,7 @@ var app = (function () {
     	let main;
     	let h1;
     	let t1;
-    	let div10;
+    	let div11;
     	let div0;
     	let t2;
     	let div1;
@@ -555,8 +555,8 @@ var app = (function () {
     	let canvas_width_value;
     	let canvas_height_value;
     	let t3;
+    	let div10;
     	let div9;
-    	let div8;
     	let div2;
     	let label0;
     	let t5;
@@ -569,40 +569,45 @@ var app = (function () {
     	let t8;
     	let div4;
     	let label2;
-    	let t10;
     	let input1;
-    	let br0;
-    	let t11;
+    	let t9;
+    	let t10;
     	let div5;
     	let label3;
-    	let t13;
+    	let t12;
     	let input2;
-    	let br1;
-    	let t14;
+    	let br0;
+    	let t13;
     	let div6;
     	let label4;
-    	let t16;
+    	let t15;
     	let input3;
-    	let br2;
-    	let t17;
+    	let br1;
+    	let t16;
     	let div7;
-    	let button;
+    	let label5;
+    	let t18;
+    	let input4;
+    	let br2;
     	let t19;
-    	let div13;
-    	let div11;
+    	let div8;
+    	let button;
     	let t21;
-    	let div12;
-    	let a0;
-    	let t22;
-    	let t23;
-    	let footer;
-    	let div15;
     	let div14;
+    	let div12;
+    	let t23;
+    	let div13;
+    	let a0;
     	let t24;
+    	let t25;
+    	let footer;
+    	let div16;
+    	let div15;
+    	let t26;
     	let a1;
     	let mounted;
     	let dispose;
-    	let each_value = /*allBanners*/ ctx[7];
+    	let each_value = /*allBanners*/ ctx[8];
     	validate_each_argument(each_value);
     	let each_blocks = [];
 
@@ -616,14 +621,14 @@ var app = (function () {
     			h1 = element("h1");
     			h1.textContent = "Hollow Knight Title Generator";
     			t1 = space();
-    			div10 = element("div");
+    			div11 = element("div");
     			div0 = element("div");
     			t2 = space();
     			div1 = element("div");
     			canvas = element("canvas");
     			t3 = space();
+    			div10 = element("div");
     			div9 = element("div");
-    			div8 = element("div");
     			div2 = element("div");
     			label0 = element("label");
     			label0.textContent = "Title style";
@@ -642,120 +647,131 @@ var app = (function () {
     			t8 = space();
     			div4 = element("div");
     			label2 = element("label");
-    			label2.textContent = "Superscript";
-    			t10 = space();
     			input1 = element("input");
-    			br0 = element("br");
-    			t11 = space();
+    			t9 = text("\n\t\t\t\t\t\tEnable bold");
+    			t10 = space();
     			div5 = element("div");
     			label3 = element("label");
-    			label3.textContent = "Main text";
-    			t13 = space();
+    			label3.textContent = "Superscript";
+    			t12 = space();
     			input2 = element("input");
-    			br1 = element("br");
-    			t14 = space();
+    			br0 = element("br");
+    			t13 = space();
     			div6 = element("div");
     			label4 = element("label");
-    			label4.textContent = "Subscript";
-    			t16 = space();
+    			label4.textContent = "Main text";
+    			t15 = space();
     			input3 = element("input");
-    			br2 = element("br");
-    			t17 = space();
+    			br1 = element("br");
+    			t16 = space();
     			div7 = element("div");
+    			label5 = element("label");
+    			label5.textContent = "Subscript";
+    			t18 = space();
+    			input4 = element("input");
+    			br2 = element("br");
+    			t19 = space();
+    			div8 = element("div");
     			button = element("button");
     			button.textContent = "Download";
-    			t19 = space();
-    			div13 = element("div");
-    			div11 = element("div");
-    			div11.textContent = "Sharable url";
     			t21 = space();
-    			div12 = element("div");
-    			a0 = element("a");
-    			t22 = text(/*link*/ ctx[0]);
-    			t23 = space();
-    			footer = element("footer");
-    			div15 = element("div");
     			div14 = element("div");
-    			t24 = text("Found a bug? Have any suggestions? Join us in the ");
+    			div12 = element("div");
+    			div12.textContent = "Sharable url";
+    			t23 = space();
+    			div13 = element("div");
+    			a0 = element("a");
+    			t24 = text(/*link*/ ctx[0]);
+    			t25 = space();
+    			footer = element("footer");
+    			div16 = element("div");
+    			div15 = element("div");
+    			t26 = text("Found a bug? Have any suggestions? Join us in the ");
     			a1 = element("a");
     			a1.textContent = "Hollow Knight Modding Discord Server";
     			attr_dev(h1, "class", "svelte-91a1jx");
-    			add_location(h1, file, 121, 1, 3592);
+    			add_location(h1, file, 146, 1, 4482);
     			attr_dev(div0, "class", "pure-u-1 pure-u-md-1-6");
-    			add_location(div0, file, 123, 2, 3655);
+    			add_location(div0, file, 148, 2, 4545);
     			attr_dev(canvas, "class", "mb-15 svelte-91a1jx");
-    			attr_dev(canvas, "width", canvas_width_value = /*currentBanner*/ ctx[5].size?.width);
-    			attr_dev(canvas, "height", canvas_height_value = /*currentBanner*/ ctx[5].size?.height);
-    			add_location(canvas, file, 126, 3, 3743);
+    			attr_dev(canvas, "width", canvas_width_value = /*currentBanner*/ ctx[6].size?.width);
+    			attr_dev(canvas, "height", canvas_height_value = /*currentBanner*/ ctx[6].size?.height);
+    			add_location(canvas, file, 151, 3, 4633);
     			attr_dev(div1, "class", "pure-u-1 pure-u-md-2-3");
-    			add_location(div1, file, 125, 2, 3703);
+    			add_location(div1, file, 150, 2, 4593);
     			attr_dev(label0, "class", "pure-u-1 pad-v svelte-91a1jx");
-    			add_location(label0, file, 131, 5, 3978);
+    			add_location(label0, file, 156, 5, 4868);
     			attr_dev(select, "class", "pure-u-1");
-    			if (/*selectedTitleIndex*/ ctx[4] === void 0) add_render_callback(() => /*select_change_handler*/ ctx[9].call(select));
-    			add_location(select, file, 132, 5, 4034);
+    			if (/*selectedTitleIndex*/ ctx[5] === void 0) add_render_callback(() => /*select_change_handler*/ ctx[10].call(select));
+    			add_location(select, file, 157, 5, 4924);
     			attr_dev(div2, "class", "pure-g svelte-91a1jx");
-    			add_location(div2, file, 130, 4, 3952);
+    			add_location(div2, file, 155, 4, 4842);
     			attr_dev(input0, "type", "checkbox");
-    			add_location(input0, file, 143, 6, 4381);
+    			add_location(input0, file, 168, 6, 5271);
     			attr_dev(label1, "class", "pure-u-1 pad-v svelte-91a1jx");
-    			add_location(label1, file, 142, 5, 4344);
+    			add_location(label1, file, 167, 5, 5234);
     			attr_dev(div3, "class", "pure-g svelte-91a1jx");
-    			add_location(div3, file, 141, 4, 4318);
+    			add_location(div3, file, 166, 4, 5208);
+    			attr_dev(input1, "type", "checkbox");
+    			add_location(input1, file, 174, 6, 5429);
     			attr_dev(label2, "class", "pure-u-1 pad-v svelte-91a1jx");
-    			add_location(label2, file, 149, 5, 4503);
-    			attr_dev(input1, "class", "pure-u-1");
-    			attr_dev(input1, "type", "text");
-    			add_location(input1, file, 150, 5, 4559);
-    			add_location(br0, file, 150, 70, 4624);
+    			add_location(label2, file, 173, 5, 5392);
     			attr_dev(div4, "class", "pure-g svelte-91a1jx");
-    			add_location(div4, file, 148, 4, 4477);
+    			add_location(div4, file, 172, 4, 5366);
     			attr_dev(label3, "class", "pure-u-1 pad-v svelte-91a1jx");
-    			add_location(label3, file, 154, 5, 4671);
+    			add_location(label3, file, 180, 5, 5551);
     			attr_dev(input2, "class", "pure-u-1");
     			attr_dev(input2, "type", "text");
-    			add_location(input2, file, 155, 5, 4725);
-    			add_location(br1, file, 155, 69, 4789);
+    			add_location(input2, file, 181, 5, 5607);
+    			add_location(br0, file, 181, 70, 5672);
     			attr_dev(div5, "class", "pure-g svelte-91a1jx");
-    			add_location(div5, file, 153, 4, 4645);
+    			add_location(div5, file, 179, 4, 5525);
     			attr_dev(label4, "class", "pure-u-1 pad-v svelte-91a1jx");
-    			add_location(label4, file, 159, 5, 4836);
+    			add_location(label4, file, 185, 5, 5719);
     			attr_dev(input3, "class", "pure-u-1");
     			attr_dev(input3, "type", "text");
-    			add_location(input3, file, 160, 5, 4890);
-    			add_location(br2, file, 160, 68, 4953);
+    			add_location(input3, file, 186, 5, 5773);
+    			add_location(br1, file, 186, 69, 5837);
     			attr_dev(div6, "class", "pure-g svelte-91a1jx");
-    			add_location(div6, file, 158, 4, 4810);
+    			add_location(div6, file, 184, 4, 5693);
+    			attr_dev(label5, "class", "pure-u-1 pad-v svelte-91a1jx");
+    			add_location(label5, file, 190, 5, 5884);
+    			attr_dev(input4, "class", "pure-u-1");
+    			attr_dev(input4, "type", "text");
+    			add_location(input4, file, 191, 5, 5938);
+    			add_location(br2, file, 191, 68, 6001);
+    			attr_dev(div7, "class", "pure-g svelte-91a1jx");
+    			add_location(div7, file, 189, 4, 5858);
     			attr_dev(button, "class", "pure-u-1");
-    			add_location(button, file, 164, 5, 5012);
-    			attr_dev(div7, "class", "pure-g pad-v-2 svelte-91a1jx");
-    			add_location(div7, file, 163, 4, 4978);
-    			attr_dev(div8, "class", "box mt-0 svelte-91a1jx");
-    			add_location(div8, file, 129, 3, 3925);
-    			attr_dev(div9, "class", "pure-u-1 pure-u-md-1-6");
-    			add_location(div9, file, 128, 2, 3885);
-    			attr_dev(div10, "class", "pure-g svelte-91a1jx");
-    			add_location(div10, file, 122, 1, 3632);
-    			attr_dev(div11, "class", "pure-u-1 pure-u-md-1-2 pad-v svelte-91a1jx");
-    			add_location(div11, file, 170, 2, 5196);
+    			add_location(button, file, 195, 5, 6060);
+    			attr_dev(div8, "class", "pure-g pad-v-2 svelte-91a1jx");
+    			add_location(div8, file, 194, 4, 6026);
+    			attr_dev(div9, "class", "box mt-0 svelte-91a1jx");
+    			add_location(div9, file, 154, 3, 4815);
+    			attr_dev(div10, "class", "pure-u-1 pure-u-md-1-6");
+    			add_location(div10, file, 153, 2, 4775);
+    			attr_dev(div11, "class", "pure-g svelte-91a1jx");
+    			add_location(div11, file, 147, 1, 4522);
+    			attr_dev(div12, "class", "pure-u-1 pure-u-md-1-2 pad-v svelte-91a1jx");
+    			add_location(div12, file, 201, 2, 6244);
     			attr_dev(a0, "class", "fit-text svelte-91a1jx");
     			attr_dev(a0, "href", /*link*/ ctx[0]);
-    			add_location(a0, file, 174, 3, 5307);
-    			attr_dev(div12, "class", "pure-u-1 pure-u-md-1-2");
-    			add_location(div12, file, 173, 2, 5267);
-    			attr_dev(div13, "class", "box svelte-91a1jx");
-    			add_location(div13, file, 169, 1, 5176);
+    			add_location(a0, file, 205, 3, 6355);
+    			attr_dev(div13, "class", "pure-u-1 pure-u-md-1-2");
+    			add_location(div13, file, 204, 2, 6315);
+    			attr_dev(div14, "class", "box svelte-91a1jx");
+    			add_location(div14, file, 200, 1, 6224);
     			attr_dev(main, "class", "svelte-91a1jx");
-    			add_location(main, file, 120, 0, 3584);
+    			add_location(main, file, 145, 0, 4474);
     			attr_dev(a1, "href", "https://discord.gg/rqsRHRt25h");
     			attr_dev(a1, "target", "_blank");
-    			add_location(a1, file, 181, 53, 5492);
-    			attr_dev(div14, "class", "pure-u-1 mb-5");
-    			add_location(div14, file, 180, 2, 5411);
-    			attr_dev(div15, "class", "pure-g svelte-91a1jx");
-    			add_location(div15, file, 179, 1, 5388);
+    			add_location(a1, file, 212, 53, 6540);
+    			attr_dev(div15, "class", "pure-u-1 mb-5");
+    			add_location(div15, file, 211, 2, 6459);
+    			attr_dev(div16, "class", "pure-g svelte-91a1jx");
+    			add_location(div16, file, 210, 1, 6436);
     			attr_dev(footer, "class", "svelte-91a1jx");
-    			add_location(footer, file, 178, 0, 5377);
+    			add_location(footer, file, 209, 0, 6425);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -764,16 +780,16 @@ var app = (function () {
     			insert_dev(target, main, anchor);
     			append_dev(main, h1);
     			append_dev(main, t1);
-    			append_dev(main, div10);
-    			append_dev(div10, div0);
-    			append_dev(div10, t2);
-    			append_dev(div10, div1);
+    			append_dev(main, div11);
+    			append_dev(div11, div0);
+    			append_dev(div11, t2);
+    			append_dev(div11, div1);
     			append_dev(div1, canvas);
-    			/*canvas_binding*/ ctx[8](canvas);
-    			append_dev(div10, t3);
+    			/*canvas_binding*/ ctx[9](canvas);
+    			append_dev(div11, t3);
+    			append_dev(div11, div10);
     			append_dev(div10, div9);
-    			append_dev(div9, div8);
-    			append_dev(div8, div2);
+    			append_dev(div9, div2);
     			append_dev(div2, label0);
     			append_dev(div2, t5);
     			append_dev(div2, select);
@@ -782,64 +798,71 @@ var app = (function () {
     				each_blocks[i].m(select, null);
     			}
 
-    			select_option(select, /*selectedTitleIndex*/ ctx[4]);
-    			append_dev(div8, t6);
-    			append_dev(div8, div3);
+    			select_option(select, /*selectedTitleIndex*/ ctx[5]);
+    			append_dev(div9, t6);
+    			append_dev(div9, div3);
     			append_dev(div3, label1);
     			append_dev(label1, input0);
     			input0.checked = /*enableBlur*/ ctx[3];
     			append_dev(label1, t7);
-    			append_dev(div8, t8);
-    			append_dev(div8, div4);
+    			append_dev(div9, t8);
+    			append_dev(div9, div4);
     			append_dev(div4, label2);
-    			append_dev(div4, t10);
-    			append_dev(div4, input1);
-    			set_input_value(input1, /*text*/ ctx[1].superText);
-    			append_dev(div4, br0);
-    			append_dev(div8, t11);
-    			append_dev(div8, div5);
+    			append_dev(label2, input1);
+    			input1.checked = /*enableBold*/ ctx[4];
+    			append_dev(label2, t9);
+    			append_dev(div9, t10);
+    			append_dev(div9, div5);
     			append_dev(div5, label3);
-    			append_dev(div5, t13);
+    			append_dev(div5, t12);
     			append_dev(div5, input2);
-    			set_input_value(input2, /*text*/ ctx[1].mainText);
-    			append_dev(div5, br1);
-    			append_dev(div8, t14);
-    			append_dev(div8, div6);
+    			set_input_value(input2, /*text*/ ctx[1].superText);
+    			append_dev(div5, br0);
+    			append_dev(div9, t13);
+    			append_dev(div9, div6);
     			append_dev(div6, label4);
-    			append_dev(div6, t16);
+    			append_dev(div6, t15);
     			append_dev(div6, input3);
-    			set_input_value(input3, /*text*/ ctx[1].subText);
-    			append_dev(div6, br2);
-    			append_dev(div8, t17);
-    			append_dev(div8, div7);
-    			append_dev(div7, button);
-    			append_dev(main, t19);
-    			append_dev(main, div13);
-    			append_dev(div13, div11);
-    			append_dev(div13, t21);
-    			append_dev(div13, div12);
-    			append_dev(div12, a0);
-    			append_dev(a0, t22);
-    			insert_dev(target, t23, anchor);
+    			set_input_value(input3, /*text*/ ctx[1].mainText);
+    			append_dev(div6, br1);
+    			append_dev(div9, t16);
+    			append_dev(div9, div7);
+    			append_dev(div7, label5);
+    			append_dev(div7, t18);
+    			append_dev(div7, input4);
+    			set_input_value(input4, /*text*/ ctx[1].subText);
+    			append_dev(div7, br2);
+    			append_dev(div9, t19);
+    			append_dev(div9, div8);
+    			append_dev(div8, button);
+    			append_dev(main, t21);
+    			append_dev(main, div14);
+    			append_dev(div14, div12);
+    			append_dev(div14, t23);
+    			append_dev(div14, div13);
+    			append_dev(div13, a0);
+    			append_dev(a0, t24);
+    			insert_dev(target, t25, anchor);
     			insert_dev(target, footer, anchor);
-    			append_dev(footer, div15);
-    			append_dev(div15, div14);
-    			append_dev(div14, t24);
-    			append_dev(div14, a1);
+    			append_dev(footer, div16);
+    			append_dev(div16, div15);
+    			append_dev(div15, t26);
+    			append_dev(div15, a1);
 
     			if (!mounted) {
     				dispose = [
-    					listen_dev(select, "change", /*select_change_handler*/ ctx[9]),
-    					listen_dev(select, "change", /*change_handler*/ ctx[10], false, false, false),
-    					listen_dev(input0, "change", /*input0_change_handler*/ ctx[11]),
-    					listen_dev(input1, "input", /*input1_input_handler*/ ctx[12]),
-    					listen_dev(input2, "input", /*input2_input_handler*/ ctx[13]),
-    					listen_dev(input3, "input", /*input3_input_handler*/ ctx[14]),
+    					listen_dev(select, "change", /*select_change_handler*/ ctx[10]),
+    					listen_dev(select, "change", /*change_handler*/ ctx[11], false, false, false),
+    					listen_dev(input0, "change", /*input0_change_handler*/ ctx[12]),
+    					listen_dev(input1, "change", /*input1_change_handler*/ ctx[13]),
+    					listen_dev(input2, "input", /*input2_input_handler*/ ctx[14]),
+    					listen_dev(input3, "input", /*input3_input_handler*/ ctx[15]),
+    					listen_dev(input4, "input", /*input4_input_handler*/ ctx[16]),
     					listen_dev(
     						button,
     						"click",
     						function () {
-    							if (is_function(/*cH*/ ctx[6].download(`${/*text*/ ctx[1].superText}${/*text*/ ctx[1].mainText}${/*text*/ ctx[1].subText}.png`))) /*cH*/ ctx[6].download(`${/*text*/ ctx[1].superText}${/*text*/ ctx[1].mainText}${/*text*/ ctx[1].subText}.png`).apply(this, arguments);
+    							if (is_function(/*cH*/ ctx[7].download(`${/*text*/ ctx[1].superText}${/*text*/ ctx[1].mainText}${/*text*/ ctx[1].subText}.png`))) /*cH*/ ctx[7].download(`${/*text*/ ctx[1].superText}${/*text*/ ctx[1].mainText}${/*text*/ ctx[1].subText}.png`).apply(this, arguments);
     						},
     						false,
     						false,
@@ -853,16 +876,16 @@ var app = (function () {
     		p: function update(new_ctx, [dirty]) {
     			ctx = new_ctx;
 
-    			if (dirty & /*currentBanner*/ 32 && canvas_width_value !== (canvas_width_value = /*currentBanner*/ ctx[5].size?.width)) {
+    			if (dirty & /*currentBanner*/ 64 && canvas_width_value !== (canvas_width_value = /*currentBanner*/ ctx[6].size?.width)) {
     				attr_dev(canvas, "width", canvas_width_value);
     			}
 
-    			if (dirty & /*currentBanner*/ 32 && canvas_height_value !== (canvas_height_value = /*currentBanner*/ ctx[5].size?.height)) {
+    			if (dirty & /*currentBanner*/ 64 && canvas_height_value !== (canvas_height_value = /*currentBanner*/ ctx[6].size?.height)) {
     				attr_dev(canvas, "height", canvas_height_value);
     			}
 
-    			if (dirty & /*allBanners*/ 128) {
-    				each_value = /*allBanners*/ ctx[7];
+    			if (dirty & /*allBanners*/ 256) {
+    				each_value = /*allBanners*/ ctx[8];
     				validate_each_argument(each_value);
     				let i;
 
@@ -885,27 +908,31 @@ var app = (function () {
     				each_blocks.length = each_value.length;
     			}
 
-    			if (dirty & /*selectedTitleIndex*/ 16) {
-    				select_option(select, /*selectedTitleIndex*/ ctx[4]);
+    			if (dirty & /*selectedTitleIndex*/ 32) {
+    				select_option(select, /*selectedTitleIndex*/ ctx[5]);
     			}
 
     			if (dirty & /*enableBlur*/ 8) {
     				input0.checked = /*enableBlur*/ ctx[3];
     			}
 
-    			if (dirty & /*text*/ 2 && input1.value !== /*text*/ ctx[1].superText) {
-    				set_input_value(input1, /*text*/ ctx[1].superText);
+    			if (dirty & /*enableBold*/ 16) {
+    				input1.checked = /*enableBold*/ ctx[4];
     			}
 
-    			if (dirty & /*text*/ 2 && input2.value !== /*text*/ ctx[1].mainText) {
-    				set_input_value(input2, /*text*/ ctx[1].mainText);
+    			if (dirty & /*text*/ 2 && input2.value !== /*text*/ ctx[1].superText) {
+    				set_input_value(input2, /*text*/ ctx[1].superText);
     			}
 
-    			if (dirty & /*text*/ 2 && input3.value !== /*text*/ ctx[1].subText) {
-    				set_input_value(input3, /*text*/ ctx[1].subText);
+    			if (dirty & /*text*/ 2 && input3.value !== /*text*/ ctx[1].mainText) {
+    				set_input_value(input3, /*text*/ ctx[1].mainText);
     			}
 
-    			if (dirty & /*link*/ 1) set_data_dev(t22, /*link*/ ctx[0]);
+    			if (dirty & /*text*/ 2 && input4.value !== /*text*/ ctx[1].subText) {
+    				set_input_value(input4, /*text*/ ctx[1].subText);
+    			}
+
+    			if (dirty & /*link*/ 1) set_data_dev(t24, /*link*/ ctx[0]);
 
     			if (dirty & /*link*/ 1) {
     				attr_dev(a0, "href", /*link*/ ctx[0]);
@@ -915,9 +942,9 @@ var app = (function () {
     		o: noop,
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(main);
-    			/*canvas_binding*/ ctx[8](null);
+    			/*canvas_binding*/ ctx[9](null);
     			destroy_each(each_blocks, detaching);
-    			if (detaching) detach_dev(t23);
+    			if (detaching) detach_dev(t25);
     			if (detaching) detach_dev(footer);
     			mounted = false;
     			run_all(dispose);
@@ -942,7 +969,8 @@ var app = (function () {
     	let text = getDefaultText();
     	let titleCanvas;
     	let enableBlur = getParam("title") == "true" || true;
-    	let multiplier = 1.71;
+    	let enableBold = getParam("bold") == "true" || true;
+    	let multiplier = 1.75;
 
     	let allBanners = [
     		new BannerParams("Base",
@@ -994,6 +1022,33 @@ var app = (function () {
     				superText: { size: 32 * 1.71, ypos: 135 * 1.71 },
     				mainText: { size: 128 * 1.71, ypos: 215 * 1.71 },
     				subText: { size: 32 * 1.71, ypos: 270 * 1.71 }
+    			}),
+    		new BannerParams("Silksong White",
+    		"Assets/silksong_logo_white.png",
+    		{
+    				needsShadow: true,
+    				blur: 10,
+    				size: { width: 1606, height: 561 },
+    				superText: { size: 32 * 1.75, ypos: (135 - 30) * 1.75 },
+    				mainText: {
+    					size: 128 * 1.75,
+    					ypos: (215 - 30) * 1.75
+    				},
+    				subText: { size: 32 * 1.75, ypos: (270 - 30) * 1.75 }
+    			}),
+    		new BannerParams("Silksong Black",
+    		"Assets/silksong_logo_black.png",
+    		{
+    				color: "black",
+    				needsShadow: true,
+    				blur: 10,
+    				size: { width: 1606, height: 561 },
+    				superText: { size: 32 * 1.75, ypos: (135 - 30) * 1.75 },
+    				mainText: {
+    					size: 128 * 1.75,
+    					ypos: (215 - 30) * 1.75
+    				},
+    				subText: { size: 32 * 1.75, ypos: (270 - 30) * 1.75 }
     			})
     	];
 
@@ -1009,7 +1064,7 @@ var app = (function () {
     	let cH;
 
     	function updateLink() {
-    		let templink = `${window.location.origin}${window.location.pathname}?title=${selectedTitleIndex}&blur=${enableBlur}&${text.superText && `super=${text.superText}&`}${text.mainText && `main=${text.mainText}&`}${text.subText && `sub=${text.subText}`}`;
+    		let templink = `${window.location.origin}${window.location.pathname}?title=${selectedTitleIndex}&blur=${enableBlur}&bold=${enableBold}&${text.superText && `super=${text.superText}&`}${text.mainText && `main=${text.mainText}&`}${text.subText && `sub=${text.subText}`}`;
 
     		if (link != templink) {
     			$$invalidate(0, link = templink);
@@ -1019,7 +1074,7 @@ var app = (function () {
 
     	onMount(() => {
     		//const ctx = titleCanvas.getContext('2d');
-    		$$invalidate(6, cH = new canvasHelper(titleCanvas));
+    		$$invalidate(7, cH = new canvasHelper(titleCanvas));
 
     		return rAF(() => {
     			updateLink();
@@ -1046,6 +1101,7 @@ var app = (function () {
 
     			cH.addText(text.superText.toUpperCase(), {
     				...currentBanner.superText,
+    				font: enableBold ? "perpetuabold" : "perpetua",
     				blur: enableBlur ? currentBanner.blur : 0,
     				color: currentBanner.color
     			});
@@ -1053,12 +1109,14 @@ var app = (function () {
     			cH.addText(text.mainText.toUpperCase(), {
     				size: currentBanner.mainText.size + (!text.superText ? currentBanner.superText.size : 0) + (!text.subText ? currentBanner.subText.size : 0),
     				ypos: currentBanner.mainText.ypos - (!text.superText ? currentBanner.superText.size / 2 : 0) + (!text.subText ? currentBanner.subText.size / 2 : 0),
+    				font: enableBold ? "perpetuabold" : "perpetua",
     				blur: enableBlur ? currentBanner.blur : 0,
     				color: currentBanner.color
     			});
 
     			cH.addText(text.subText.toUpperCase(), {
     				...currentBanner.subText,
+    				font: enableBold ? "perpetuabold" : "perpetua",
     				blur: enableBlur ? currentBanner.blur : 0,
     				color: currentBanner.color
     			});
@@ -1080,11 +1138,11 @@ var app = (function () {
 
     	function select_change_handler() {
     		selectedTitleIndex = select_value(this);
-    		$$invalidate(4, selectedTitleIndex);
+    		$$invalidate(5, selectedTitleIndex);
     	}
 
     	const change_handler = () => {
-    		$$invalidate(5, currentBanner = allBanners[selectedTitleIndex]);
+    		$$invalidate(6, currentBanner = allBanners[selectedTitleIndex]);
     	};
 
     	function input0_change_handler() {
@@ -1092,17 +1150,22 @@ var app = (function () {
     		$$invalidate(3, enableBlur);
     	}
 
-    	function input1_input_handler() {
+    	function input1_change_handler() {
+    		enableBold = this.checked;
+    		$$invalidate(4, enableBold);
+    	}
+
+    	function input2_input_handler() {
     		text.superText = this.value;
     		$$invalidate(1, text);
     	}
 
-    	function input2_input_handler() {
+    	function input3_input_handler() {
     		text.mainText = this.value;
     		$$invalidate(1, text);
     	}
 
-    	function input3_input_handler() {
+    	function input4_input_handler() {
     		text.subText = this.value;
     		$$invalidate(1, text);
     	}
@@ -1118,6 +1181,7 @@ var app = (function () {
     		text,
     		titleCanvas,
     		enableBlur,
+    		enableBold,
     		multiplier,
     		allBanners,
     		selectedTitleIndex,
@@ -1131,11 +1195,12 @@ var app = (function () {
     		if ('text' in $$props) $$invalidate(1, text = $$props.text);
     		if ('titleCanvas' in $$props) $$invalidate(2, titleCanvas = $$props.titleCanvas);
     		if ('enableBlur' in $$props) $$invalidate(3, enableBlur = $$props.enableBlur);
+    		if ('enableBold' in $$props) $$invalidate(4, enableBold = $$props.enableBold);
     		if ('multiplier' in $$props) multiplier = $$props.multiplier;
-    		if ('allBanners' in $$props) $$invalidate(7, allBanners = $$props.allBanners);
-    		if ('selectedTitleIndex' in $$props) $$invalidate(4, selectedTitleIndex = $$props.selectedTitleIndex);
-    		if ('currentBanner' in $$props) $$invalidate(5, currentBanner = $$props.currentBanner);
-    		if ('cH' in $$props) $$invalidate(6, cH = $$props.cH);
+    		if ('allBanners' in $$props) $$invalidate(8, allBanners = $$props.allBanners);
+    		if ('selectedTitleIndex' in $$props) $$invalidate(5, selectedTitleIndex = $$props.selectedTitleIndex);
+    		if ('currentBanner' in $$props) $$invalidate(6, currentBanner = $$props.currentBanner);
+    		if ('cH' in $$props) $$invalidate(7, cH = $$props.cH);
     	};
 
     	if ($$props && "$$inject" in $$props) {
@@ -1147,6 +1212,7 @@ var app = (function () {
     		text,
     		titleCanvas,
     		enableBlur,
+    		enableBold,
     		selectedTitleIndex,
     		currentBanner,
     		cH,
@@ -1155,9 +1221,10 @@ var app = (function () {
     		select_change_handler,
     		change_handler,
     		input0_change_handler,
-    		input1_input_handler,
+    		input1_change_handler,
     		input2_input_handler,
-    		input3_input_handler
+    		input3_input_handler,
+    		input4_input_handler
     	];
     }
 

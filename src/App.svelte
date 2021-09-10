@@ -6,7 +6,8 @@
 	let text = getDefaultText();
 	let titleCanvas;
 	let enableBlur = getParam("title") == "true" || true;
-	let multiplier = 1.71;
+	let enableBold = getParam("bold") == "true" || true;
+	let multiplier = 1.75;
 	let allBanners = [
 		new BannerParams(
 			"Base",
@@ -57,6 +58,27 @@
 			superText:{ size : 32*1.71, ypos : 135*1.71},
 			mainText:{ size : 128*1.71, ypos : 215*1.71},
 			subText:{ size : 32*1.71, ypos : 270*1.71}
+		}),
+		new BannerParams(
+			"Silksong White",
+			"Assets/silksong_logo_white.png",{
+			needsShadow : true,
+			blur : 10,	
+			size : {width: 1606, height: 561},
+			superText:{ size : 32*1.75, ypos : (135-30)*1.75},
+			mainText:{ size : 128*1.75, ypos : (215-30)*1.75},
+			subText:{ size : 32*1.75, ypos : (270-30)*1.75}
+		}),
+		new BannerParams(
+			"Silksong Black",
+			"Assets/silksong_logo_black.png",{
+			color:"black",
+			needsShadow : true,
+			blur : 10,	
+			size : {width: 1606, height: 561},
+			superText:{ size : 32*1.75, ypos : (135-30)*1.75},
+			mainText:{ size : 128*1.75, ypos : (215-30)*1.75},
+			subText:{ size : 32*1.75, ypos : (270-30)*1.75}
 		})
 	]
 	let selectedTitleIndex = 0;
@@ -67,7 +89,7 @@
 	let currentBanner = allBanners[selectedTitleIndex];
 	let cH;
 	function updateLink(){
-		let templink = `${window.location.origin}${window.location.pathname}?title=${selectedTitleIndex}&blur=${enableBlur}&${text.superText && `super=${text.superText}&`}${text.mainText && `main=${text.mainText}&`}${text.subText && `sub=${text.subText}`}`;
+		let templink = `${window.location.origin}${window.location.pathname}?title=${selectedTitleIndex}&blur=${enableBlur}&bold=${enableBold}&${text.superText && `super=${text.superText}&`}${text.mainText && `main=${text.mainText}&`}${text.subText && `sub=${text.subText}`}`;
 		if(link != templink){
 			link = templink;
 			window.history.pushState(link,"Title Change",link);
@@ -95,6 +117,7 @@
 			cH.addText(text.superText.toUpperCase(),
 				{
 					...currentBanner.superText,
+					font: enableBold ? "perpetuabold" : "perpetua",
 					blur: enableBlur ? currentBanner.blur : 0,
 					color:currentBanner.color
 				}
@@ -103,6 +126,7 @@
 				{	
 					size:currentBanner.mainText.size + (!text.superText? currentBanner.superText.size : 0) + (!text.subText? currentBanner.subText.size : 0),
 					ypos:currentBanner.mainText.ypos - (!text.superText? currentBanner.superText.size/2 : 0) + (!text.subText? currentBanner.subText.size/2 : 0),
+					font: enableBold ? "perpetuabold" : "perpetua",
 					blur: enableBlur ? currentBanner.blur : 0,
 					color:currentBanner.color
 				}
@@ -110,6 +134,7 @@
 			cH.addText(text.subText.toUpperCase(),
 				{
 					...currentBanner.subText,
+					font: enableBold ? "perpetuabold" : "perpetua",
 					blur: enableBlur ? currentBanner.blur : 0,
 					color:currentBanner.color
 				}
@@ -143,6 +168,12 @@
 					<label class="pure-u-1 pad-v">
 						<input type=checkbox bind:checked={enableBlur}>
 						Enable blur
+					</label>
+				</div>
+				<div class="pure-g">
+					<label class="pure-u-1 pad-v">
+						<input type=checkbox bind:checked={enableBold}>
+						Enable bold
 					</label>
 				</div>
 
